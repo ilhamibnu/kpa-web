@@ -69,6 +69,8 @@
             <!-- container -->
             @yield('content')
             <!-- Container closed -->
+
+            @include('admin.partials.modalupdate')
         </div>
         <!-- main-content closed -->
 
@@ -231,7 +233,17 @@
     </script>
     @endif
 
+    @if(Session::get('updateprofil'))
+    <script>
+        swal("Done!"
+            , "Profil Berhasil Diubah"
+            , "success"
+            , {
+                button: "OK"
+            , });
 
+    </script>
+    @endif
 
 
 </body>

@@ -21,9 +21,13 @@ use App\Http\Controllers\PengaduanController;
 # Auth
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'postLogin']);
-Route::get('/logout', [AuthController::class, 'logout']);
+
 
 Route::group(['middleware' => 'IsLogin'], function () {
+
+    # Auth
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/update-profil', [AuthController::class, 'updateprofil']);
 
     # Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsAdmin');

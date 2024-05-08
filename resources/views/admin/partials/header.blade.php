@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="profile.html"><i class="far fa-user-circle"></i>Profile</a>
+                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#UpdateProfilModal" href="#"><i class="far fa-user-circle"></i>Profile</a>
                                 {{-- <a class="dropdown-item" href="chat.html"><i class="far fa-smile"></i> chat</a>
                                 <a class="dropdown-item" href="mail-read.html"><i class="far fa-envelope "></i>Inbox</a>
                                 <a class="dropdown-item" href="mail.html"><i class="far fa-comment-dots"></i>Messages</a>

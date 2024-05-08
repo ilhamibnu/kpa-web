@@ -90,4 +90,6 @@ class UserController extends Controller
 
         return redirect('/data-user')->with('destroy', 'User berhasil dihapus');
     }
+
+
 }

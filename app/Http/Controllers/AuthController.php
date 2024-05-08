@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -39,5 +40,45 @@ class AuthController extends Controller
     {
         auth()->logout();
         return redirect('/login')->with('logout', 'Anda berhasil logout');
+    }
+
+    public function updateprofil(Request $request)
+    {
+        if ($request->password != null) {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+                'password' => 'required',
+                'repassword' => 'required|same:password',
+            ], [
+                'name.required' => 'Nama harus diisi',
+                'email.required' => 'Email harus diisi',
+                'email.email' => 'Email harus valid',
+                'email.unique' => 'Email sudah terdaftar',
+                'password.required' => 'Password harus diisi',
+                'repassword.required' => 'Konfirmasi password harus diisi',
+                'repassword.same' => 'Konfirmasi password tidak sama dengan password',
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+            ], [
+                'name.required' => 'Nama harus diisi',
+                'email.required' => 'Email harus diisi',
+                'email.email' => 'Email harus valid',
+                'email.unique' => 'Email sudah terdaftar',
+            ]);
+        }
+
+        $user = User::find(auth()->user()->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->password != null) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->save();
+
+        return redirect('/dashboard')->with('updateprofil', 'Profil berhasil diubah');
     }
 }
