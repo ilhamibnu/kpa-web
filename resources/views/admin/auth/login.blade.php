@@ -96,68 +96,44 @@
                                             <h2>Welcome back!</h2>
                                             <h6 class="font-weight-semibold mb-4">Please sign in to continue.</h6>
                                             <div class="panel panel-primary">
-                                                <div class=" tab-menu-heading mb-2 border-bottom-0">
-                                                    <div class="tabs-menu1">
-                                                        <ul class="nav panel-tabs">
-                                                            <li class="me-2"><a href="#tab5" class="active" data-bs-toggle="tab">Email</a></li>
-                                                            <li><a href="#tab6" data-bs-toggle="tab" class="">Mobile no</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
                                                 <div class="panel-body tabs-menu-body border-0 p-3">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" id="tab5">
-                                                            <form action="#">
+                                                            <form action="/login" method="post">
+                                                                @method('POST')
+                                                                @csrf
+
+                                                                @if($errors->any())
+                                                                <div class="alert alert-danger alert-dismissible fade show mt-2">
+
+
+
+                                                                    <?php
+
+                                                                        $nomer = 1;
+
+                                                                        ?>
+
+                                                                    @foreach($errors->all() as $error)
+                                                                    <li>{{ $nomer++ }}. {{ $error }}</li>
+                                                                    @endforeach
+                                                                </div>
+                                                                @endif
                                                                 <div class="form-group">
-                                                                    <label>Email</label> <input class="form-control" placeholder="Enter your email" type="text">
+                                                                    <label>Email</label> <input name="email" class="form-control" placeholder="Enter your email" type="text">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label>Password</label> <input class="form-control" placeholder="Enter your password" type="password">
-                                                                </div><button class="btn btn-primary btn-block">Sign In</button>
-                                                                <div class="mt-4 d-flex text-center justify-content-center mb-2">
-                                                                    <button class="btn btn-icon btn-facebook me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-facebook tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-twitter tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-linkedin tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn  btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-instagram tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                </div>
+                                                                    <label>Password</label> <input name="password" class="form-control" placeholder="Enter your password" type="password">
+                                                                </div><button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
                                                             </form>
                                                         </div>
-                                                        <div class="tab-pane" id="tab6">
-                                                            <div id="mobile-num" class="wrap-input100 validate-input input-group mb-2">
-                                                                <a href="javascript:void(0);" class="input-group-text bg-white text-muted">
-                                                                    <span>+91</span>
-                                                                </a>
-                                                                <input class="input100 form-control" type="mobile" placeholder="Mobile">
-                                                            </div>
-                                                            <div id="login-otp" class="justify-content-around mb-4">
-                                                                <input class="form-control  text-center me-2" id="txt1" maxlength="1">
-                                                                <input class="form-control  text-center me-2" id="txt2" maxlength="1">
-                                                                <input class="form-control  text-center me-2" id="txt3" maxlength="1">
-                                                                <input class="form-control  text-center" id="txt4" maxlength="1">
-                                                            </div>
-                                                            <span>Note : Login with registered mobile number to generate OTP.</span>
-                                                            <div class="container-login100-form-btn mt-3">
-                                                                <a href="javascript:void(0);" class="btn login100-form-btn btn-primary" id="generate-otp">
-                                                                    Proceed
-                                                                </a>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="main-signin-footer text-center mt-3">
-                                                <p><a href="#" class="mb-3">Forgot password?</a></p>
-                                                <p>Don't have an account? <a href="signup.html">Create an Account</a></p>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

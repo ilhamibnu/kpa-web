@@ -46,7 +46,7 @@
                                     <div class="d-flex wd-100p">
                                         <div class="main-img-user"><img alt="" src="{{ asset('admin/assets/img/faces/2.jpg') }}" class=""></div>
                                         <div class="ms-3 my-auto">
-                                            <h6 class="tx-15 font-weight-semibold mb-0">Teri Dactyl</h6><span class="dropdown-title-text subtext op-6  tx-12">Premium Member</span>
+                                            <h6 class="tx-15 font-weight-semibold mb-0">{{ Auth::user()->name }}</h6><span class="dropdown-title-text subtext op-6  tx-12">{{ Auth::user()->role }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                 <a class="dropdown-item" href="mail-read.html"><i class="far fa-envelope "></i>Inbox</a>
                                 <a class="dropdown-item" href="mail.html"><i class="far fa-comment-dots"></i>Messages</a>
                                 <a class="dropdown-item" href="mail-settings.html"><i class="far fa-sun"></i> Settings</a> --}}
-                                <a class="dropdown-item" href="signup.html"><i class="far fa-arrow-alt-circle-left"></i> Sign Out</a>
+                                <a class="dropdown-item" href="/logout"><i class="far fa-arrow-alt-circle-left"></i> Sign Out</a>
                             </div>
                         </li>
                     </ul>

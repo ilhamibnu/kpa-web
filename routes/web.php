@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,24 @@ use App\Http\Controllers\AuthController;
 */
 
 # Auth
-Route::get('/', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'postLogin']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
-# Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::group(['middleware' => 'IsLogin'], function () {
+
+    # Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsAdmin');
+
+    # Artikel
+    Route::get('/data-artikel', [ArtikelController::class, 'index'])->middleware('IsAdmin');
+    Route::post('/data-artikel', [ArtikelController::class, 'store'])->middleware('IsAdmin');
+    Route::put('/data-artikel/{id}', [ArtikelController::class, 'update'])->middleware('IsAdmin');
+    Route::delete('/data-artikel/{id}', [ArtikelController::class, 'destroy'])->middleware('IsAdmin');
+
+    # Pengaduan
+    Route::get('/data-pengaduan', [PengaduanController::class, 'index'])->middleware('IsAdmin');
+    Route::post('/data-pengaduan', [PengaduanController::class, 'store'])->middleware('IsAdmin');
+    Route::put('/data-pengaduan/{id}', [PengaduanController::class, 'update'])->middleware('IsAdmin');
+    Route::delete('/data-pengaduan/{id}', [PengaduanController::class, 'destroy'])->middleware('IsAdmin');
+});

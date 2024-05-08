@@ -4,13 +4,6 @@
             <div class="row">
                 <div class="predefined_styles">
                     <div class="swichermainleft text-center">
-                        <div class="p-3 d-grid gap-2">
-                            <a href="https://codeigniter.spruko.com/nowa" class="btn ripple btn-primary mt-0">View Demo</a>
-                            <a href="https://themeforest.net/item/nowa-codeigniter-admin-dashboard-html-template/37764437?s_rank=8" class="btn ripple btn-info">Buy Now</a>
-                            <a href="https://themeforest.net/user/spruko/portfolio" class="btn ripple btn-danger">Our Portfolio</a>
-                        </div>
-                    </div>
-                    <div class="swichermainleft text-center">
                         <h4>LTR AND RTL VERSIONS</h4>
                         <div class="skin-body">
                             <div class="switch_section">
