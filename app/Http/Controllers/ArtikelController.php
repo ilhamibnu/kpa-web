@@ -20,14 +20,14 @@ class ArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ], [
             'judul.required' => 'Judul harus diisi',
             'isi.required' => 'Isi harus diisi',
             'gambar.required' => 'Gambar harus diisi',
             'gambar.image' => 'File harus berupa gambar',
             'gambar.mimes' => 'File harus berupa gambar dengan format jpeg, png, jpg, gif, atau svg',
-            'gambar.max' => 'Ukuran file tidak boleh lebih dari 2MB',
+
         ]);
 
         // simpan gambar ke public/artikel/image/
@@ -50,13 +50,13 @@ class ArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ], [
             'judul.required' => 'Judul harus diisi',
             'isi.required' => 'Isi harus diisi',
             'gambar.image' => 'File harus berupa gambar',
             'gambar.mimes' => 'File harus berupa gambar dengan format jpeg, png, jpg, gif, atau svg',
-            'gambar.max' => 'Ukuran file tidak boleh lebih dari 2MB',
+
         ]);
 
         $artikel = Artikel::find($id);
@@ -66,9 +66,8 @@ class ArtikelController extends Controller
         if ($request->hasFile('gambar')) {
             // hapus gambar lama
             $gambarLama = $artikel->foto;
-            if ($gambarLama != 'default.jpg') {
-                unlink('artikel/image/' . $gambarLama);
-            }
+            unlink('artikel/image/' . $gambarLama);
+
 
             // simpan gambar baru
             $gambar = $request->file('gambar');
@@ -86,9 +85,9 @@ class ArtikelController extends Controller
     {
         $artikel = Artikel::find($id);
         $gambar = $artikel->foto;
-        if ($gambar != 'default.jpg') {
-            unlink('artikel/image/' . $gambar);
-        }
+
+        unlink('artikel/image/' . $gambar);
+
         $artikel->delete();
 
         return redirect('/data-artikel')->with('destroy', 'Artikel berhasil dihapus');

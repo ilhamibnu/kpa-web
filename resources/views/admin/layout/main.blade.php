@@ -140,6 +140,27 @@
     <script src="{{ asset('admin/assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/table-data.js') }}"></script>
 
+    <!--Internal Fileuploads js-->
+    <script src="{{ asset('admin/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+    <!--Internal Fancy uploader js-->
+    <script src="{{ asset('admin/assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/fancyuploder/jquery.fileupload.j') }}s"></script>
+    <script src="{{ asset('admin/assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+
+    <!--Internal  Sweet-Alert js-->
+    <script src="{{ asset('admin/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/sweet-alert/jquery.sweet-alert.js') }}"></script>
+
+    <!-- Sweet-alert js  -->
+    <script src="{{ asset('admin/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/sweet-alert.js') }}"></script>
+
+
+
     <!-- INTERNAL Select2 js -->
     <script src="{{ asset('admin/assets/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/select2.js') }}"></script>
@@ -160,6 +181,59 @@
 
     <!-- Switcher js -->
     <script src="{{ asset('admin/assets/switcher/js/switcher.js') }}"></script>
+
+    @if(Session::get('store'))
+    <script>
+        swal("Done!"
+            , "Data Berhasil Ditambahkan"
+            , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+    @if(Session::get('update'))
+    <script>
+        swal("Done!"
+            , "Data Berhasil Diubah"
+            , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+    @if(Session::get('destroy'))
+    <script>
+        swal("Done!"
+            , "Data Berhasil Dihapus"
+            , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+
+    @if(Session::get('login'))
+    <script>
+        swal("Done!"
+            , "Login Berhasil"
+            , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+
+
+
 </body>
 
 </html>

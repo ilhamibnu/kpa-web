@@ -166,7 +166,15 @@
     <!--Internal  Perfect-scrollbar js -->
     <script src="{{ asset('admin/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 
+    <!-- Sweet-alert js  -->
+    <script src="{{ asset('admin/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/sweet-alert.js') }}"></script>
 
+
+
+    <!-- INTERNAL Select2 js -->
+    <script src="{{ asset('admin/assets/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/select2.js') }}"></script>
 
     <!-- Theme Color js -->
     <script src="{{ asset('admin/assets/js/themecolor.js') }}"></script>
@@ -176,6 +184,18 @@
 
     <!-- Switcher js -->
     <script src="{{ asset('admin/assets/switcher/js/switcher.js') }}"></script>
+
+    @if(Session::get('logout'))
+    <script>
+        swal("Done!"
+            , "Logout Berhasil"
+            , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
 </body>
 
 <!-- Mirrored from codeigniter.spruko.com/nowa/nowa_demo/signin by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Feb 2024 08:54:17 GMT -->

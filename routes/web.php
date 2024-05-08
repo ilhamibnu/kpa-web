@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
@@ -38,4 +39,10 @@ Route::group(['middleware' => 'IsLogin'], function () {
     Route::post('/data-pengaduan', [PengaduanController::class, 'store'])->middleware('IsAdmin');
     Route::put('/data-pengaduan/{id}', [PengaduanController::class, 'update'])->middleware('IsAdmin');
     Route::delete('/data-pengaduan/{id}', [PengaduanController::class, 'destroy'])->middleware('IsAdmin');
+
+    # User
+    Route::get('/data-user', [UserController::class, 'index'])->middleware('IsAdmin');
+    Route::post('/data-user', [UserController::class, 'store'])->middleware('IsAdmin');
+    Route::put('/data-user/{id}', [UserController::class, 'update'])->middleware('IsAdmin');
+    Route::delete('/data-user/{id}', [UserController::class, 'destroy'])->middleware('IsAdmin');
 });
