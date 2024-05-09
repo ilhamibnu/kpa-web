@@ -55,6 +55,9 @@
                                     <a href="/user/riwayat-pengaduan" class="dropdown-item d-flex align-items-center">
                                         <span>Riwayat Pengaduan</span>
                                     </a>
+                                    <a href="/user/profil" class="dropdown-item d-flex align-items-center">
+                                        <span>Profil</span>
+                                    </a>
                                     <a href="/user/logout" class="dropdown-item d-flex align-items-center">
                                         <span>Logout</span>
                                     </a>

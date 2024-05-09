@@ -9,12 +9,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Login</h2>
+                    <h2>Reset Password</h2>
                     <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>Login</li>
+                        <li>Reset Password</li>
                     </ul>
                 </div>
             </div>
@@ -27,9 +27,9 @@
 <section class="login-area ptb-100">
     <div class="container">
         <div class="login-form">
-            <h2>Login</h2>
+            <h2>Reset Password</h2>
 
-            <form action="/user/login" method="POST">
+            <form action="/user/reset-password" method="POST">
                 @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
 
@@ -48,23 +48,22 @@
                 @endif
                 @csrf
                 @method('POST')
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="Email or phone">
+                <div hidden class="form-group">
+                    <label>Repassword</label>
+                    <input type="text" name="code" value="{{ $user->code }}" class="form-control" placeholder="code" required>
                 </div>
-
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
 
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password">
-                        <a href="/user/link-reset-password" class="lost-your-password">Forgot your password?</a>
-                    </div>
+                <div class="form-group">
+                    <label>Repassword</label>
+                    <input type="repassword" name="password" class="form-control" placeholder="Password" required>
                 </div>
 
-                <button type="submit">Login</button>
+
+                <button type="submit">Reset Password</button>
             </form>
 
             <div class="important-text">

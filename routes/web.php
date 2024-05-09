@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
-use App\Http\Controllers\User\AuthContoller;
+use App\Http\Controllers\User\AuthContoller as AuthUserContoller;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\ArtikelController as UserArtikelController;
@@ -65,11 +65,23 @@ Route::group(['middleware' => 'IsLogin'], function () {
 Route::get('/', [IndexController::class, 'index']);
 
 # Auth
-Route::get('/user/login', [AuthContoller::class, 'indexLogin']);
-Route::get('/user/register', [AuthContoller::class, 'indexRegister']);
-Route::post('/user/login', [AuthContoller::class, 'postLogin']);
-Route::post('/user/register', [AuthContoller::class, 'postRegister']);
-Route::get('/user/logout', [AuthContoller::class, 'logout']);
+Route::get('/user/login', [AuthUserContoller::class, 'indexLogin']);
+Route::get('/user/register', [AuthUserContoller::class, 'indexRegister']);
+Route::post('/user/login', [AuthUserContoller::class, 'postLogin']);
+Route::post('/user/register', [AuthUserContoller::class, 'postRegister']);
+Route::get('/user/logout', [AuthUserContoller::class, 'logout']);
+
+Route::get('/user/link-reset-password', [AuthUserContoller::class, 'linkresetpassword']);
+Route::post('/user/link-reset-password', [AuthUserContoller::class, 'sendlinkresetpassword']);
+
+Route::get('/user/reset-password/{code}', [AuthUserContoller::class, 'changepassword']);
+Route::post('/user/reset-password', [AuthUserContoller::class, 'changepasswordpost']);
+
+Route::group(['middleware' => 'IsUser'], function () {
+    # Profil
+    Route::get('/user/profil', [AuthUserContoller::class, 'profil']);
+    Route::post('/user/update-profil', [AuthUserContoller::class, 'updateprofil']);
+});
 
 # Contact
 Route::get('/user/contact', [ContactController::class, 'index']);

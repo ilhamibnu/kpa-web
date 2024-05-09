@@ -7,12 +7,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Event</h2>
+                    <h2>Riwayat Pengaduan</h2>
                     <ul>
                         <li>
                             <a href="index.html">Home</a>
                         </li>
-                        <li>Event</li>
+                        <li>Riwayat Pengaduan</li>
                     </ul>
                 </div>
             </div>

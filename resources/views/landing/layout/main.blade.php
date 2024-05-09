@@ -176,6 +176,51 @@
     </script>
     @endif
 
+    @if(Session::get('update'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Profil Berhasil Diupdate"
+        });
+
+    </script>
+    @endif
+
+    @if(Session::get('linkkadaluarsa'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Link Reset Password Kadaluarsa"
+        });
+
+    </script>
+    @endif
+
+    @if(Session::get('emailtidakada'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Email Tidak Terdaftar"
+        });
+
+    </script>
+    @endif
+
+    @if(Session::get('resetpasswordberhasil'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Reset Password Berhasil"
+        });
+
+    </script>
+    @endif
+
+
     @yield('script')
 
 </body>

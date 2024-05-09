@@ -9,12 +9,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Login</h2>
+                    <h2>Reset Password</h2>
                     <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>Login</li>
+                        <li>Reset Password</li>
                     </ul>
                 </div>
             </div>
@@ -27,9 +27,9 @@
 <section class="login-area ptb-100">
     <div class="container">
         <div class="login-form">
-            <h2>Login</h2>
+            <h2>Reset password</h2>
 
-            <form action="/user/login" method="POST">
+            <form action="/user/link-reset-password" method="POST">
                 @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
 
@@ -50,21 +50,10 @@
                 @method('POST')
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="Email or phone">
+                    <input type="text" name="email" class="form-control" placeholder="Email" required>
                 </div>
 
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password">
-                        <a href="/user/link-reset-password" class="lost-your-password">Forgot your password?</a>
-                    </div>
-                </div>
-
-                <button type="submit">Login</button>
+                <button type="submit">Send Link</button>
             </form>
 
             <div class="important-text">

@@ -2,19 +2,18 @@
 
 @section('content')
 
-
 <!-- Start Page Banner -->
 <div class="page-banner-area item-bg3">
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Login</h2>
+                    <h2>Profil</h2>
                     <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>Login</li>
+                        <li>Profil</li>
                     </ul>
                 </div>
             </div>
@@ -23,13 +22,11 @@
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Login Area -->
-<section class="login-area ptb-100">
+<!-- Start Apply Area -->
+<section class="apply-area ptb-100">
     <div class="container">
-        <div class="login-form">
-            <h2>Login</h2>
-
-            <form action="/user/login" method="POST">
+        <div class="apply-form">
+            <form action="/user/update-profil" method="POST">
                 @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
 
@@ -48,30 +45,32 @@
                 @endif
                 @csrf
                 @method('POST')
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="Email or phone">
+                <div class="content">
+                    <h3>Profil</h3>
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
+                    <input type="text" name="name" value="{{ Auth::user()->name }}" class="form-control" placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="email" value="{{ Auth::user()->email }}" class="form-control" placeholder="Email Address">
+                </div>
+
+                <div class="form-group">
                     <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
 
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password">
-                        <a href="/user/link-reset-password" class="lost-your-password">Forgot your password?</a>
-                    </div>
+                <div class="form-group">
+                    <input type="password" name="repassword" class="form-control" placeholder="Repassword">
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" class="default-btn">
+                    Submit Now
+                </button>
             </form>
-
-            <div class="important-text">
-                <p>Don't have an account? <a href="/user/register">Register now!</a></p>
-            </div>
         </div>
     </div>
 </section>
-<!-- End Login Area -->
+<!-- End Apply Area -->
 @endsection
