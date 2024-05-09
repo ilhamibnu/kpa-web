@@ -6,6 +6,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\User\AuthContoller;
+use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\ContactController;
+use App\Http\Controllers\User\ArtikelController as UserArtikelController;
+use App\Http\Controllers\User\PengaduanController as UserPengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +29,8 @@ Route::post('/login', [AuthController::class, 'postLogin']);
 
 
 Route::group(['middleware' => 'IsLogin'], function () {
+
+    ##### ADMIN ######
 
     # Auth
     Route::get('/logout', [AuthController::class, 'logout']);
@@ -50,3 +57,26 @@ Route::group(['middleware' => 'IsLogin'], function () {
     Route::put('/data-user/{id}', [UserController::class, 'update'])->middleware('IsAdmin');
     Route::delete('/data-user/{id}', [UserController::class, 'destroy'])->middleware('IsAdmin');
 });
+
+##### USER ######
+
+# Index
+Route::get('/', [IndexController::class, 'index']);
+
+# Auth
+Route::get('/user/login', [AuthContoller::class, 'indexLogin']);
+Route::get('/user/register', [AuthContoller::class, 'indexRegister']);
+Route::post('/user/login', [AuthContoller::class, 'postLogin']);
+Route::post('/user/register', [AuthContoller::class, 'postRegister']);
+Route::get('/user/logout', [AuthContoller::class, 'logout']);
+
+# Contact
+Route::get('/user/contact', [ContactController::class, 'index']);
+
+# Artikel
+Route::get('/user/artikel', [UserArtikelController::class, 'index']);
+Route::get('/user/artikel/{id}', [UserArtikelController::class, 'detail']);
+
+# Pengaduan
+Route::get('/user/pengaduan', [UserPengaduanController::class, 'index']);
+Route::post('/user/pengaduan', [UserPengaduanController::class, 'store']);

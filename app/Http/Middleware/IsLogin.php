@@ -19,6 +19,6 @@ class IsLogin
             return $next($request);
         }
 
-        return redirect('/login')->with('error', 'Anda harus login terlebih dahulu');
+        return redirect('/')->with('error', 'Anda harus login terlebih dahulu');
     }
 }
