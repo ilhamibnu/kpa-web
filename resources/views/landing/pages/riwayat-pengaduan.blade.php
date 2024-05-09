@@ -2,17 +2,17 @@
 
 @section('content')
 <!-- Start Page Banner -->
-<div class="page-banner-area">
+<div class="page-banner-area item-bg3">
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Blog</h2>
+                    <h2>Event</h2>
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <a href="index.html">Home</a>
                         </li>
-                        <li>Blog</li>
+                        <li>Event</li>
                     </ul>
                 </div>
             </div>
@@ -21,11 +21,11 @@
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Blog Area -->
-<section class="blog-area pt-100 pb-100">
-    <div id="test" class="container">
+<!-- Start Event Area -->
+<section class="event-area event-item-two pt-100 pb-70">
+    <div id="test" class="container-fluid">
         <div class="row">
-            @include('landing.data.artikel')
+            @include('landing.data.riwayat-pengaduan')
         </div>
     </div>
     @if($jumlah_data > 3)
@@ -38,13 +38,13 @@
     </div>
     @endif
 </section>
-<!-- End Blog Area -->
+<!-- End Event Area -->
 @endsection
 
 @section('script')
 <script>
     var page = 1;
-    var ENDPOINT = "/user/artikel?";
+    var ENDPOINT = "/user/riwayat-pengaduan?";
 
     $("#loadmore").click(function() {
         page++;

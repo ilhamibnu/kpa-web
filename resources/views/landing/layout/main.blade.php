@@ -86,12 +86,12 @@
     <!-- End Go Top Area -->
 
     <!-- dark version -->
-    <div class="dark-version">
+    {{-- <div class="dark-version">
         <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
         </label>
-    </div>
+    </div> --}}
     <!-- dark version -->
 
     <!-- Jquery Slim JS -->
@@ -176,7 +176,7 @@
     </script>
     @endif
 
-
+    @yield('script')
 
 </body>
 </html>

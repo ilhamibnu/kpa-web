@@ -8,11 +8,21 @@ use App\Http\Controllers\Controller;
 
 class ArtikelController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $artikel = Artikel::all();
+        $jumlah_data = Artikel::count();
+        $artikel = Artikel::paginate(3);
+
+        if ($request->ajax()) {
+            $view = view('landing.data.artikel', [
+                'artikel' => $artikel
+            ])->render();
+            return response()->json(['html' => $view]);
+        }
+
         return view('landing.pages.artikel', [
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'jumlah_data' => $jumlah_data
         ]);
     }
 

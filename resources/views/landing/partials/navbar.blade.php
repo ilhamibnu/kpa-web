@@ -27,13 +27,11 @@
                                 Home
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a href="/user/artikel" class="nav-link">
                                 Artikel
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a href="/user/contact" class="nav-link">
                                 Contact
@@ -42,13 +40,6 @@
                     </ul>
 
                     <div class="others-options d-flex align-items-center">
-
-
-
-                    </div>
-
-                    <div class="others-options d-flex align-items-center">
-
 
                         <div class="option-item">
                             @if (Auth::check() && Auth::user()->role == 'user')
@@ -84,5 +75,51 @@
         </div>
     </div>
 
+    <div class="others-option-for-responsive">
+        <div class="container">
+            <div class="dot-menu">
+                <div class="inner">
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+                    <div class="circle circle-three"></div>
+                </div>
+            </div>
 
+            <div class="container">
+                <div class="option-inner">
+                    <div class="others-options d-flex align-items-center">
+
+                        <div class="option-item">
+                            @if (Auth::check() && Auth::user()->role == 'user')
+                            <div class="dropdown language-switcher d-inline-block">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>{{ Auth::user()->name }} <i class="bx bx-chevron-down"></i></span>
+                                </button>
+
+                                <div class="dropdown-menu">
+                                    <a href="/user/pengaduan" class="dropdown-item d-flex align-items-center">
+                                        <span>Pengaduan</span>
+                                    </a>
+                                    <a href="/user/riwayat-pengaduan" class="dropdown-item d-flex align-items-center">
+                                        <span>Riwayat Pengaduan</span>
+                                    </a>
+                                    <a href="/user/logout" class="dropdown-item d-flex align-items-center">
+                                        <span>Logout</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            @else
+                            <div class="option-item">
+                                <a href="/user/login" class="default-btn">Login / Register</a>
+                            </div>
+
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

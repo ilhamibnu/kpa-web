@@ -11,6 +11,7 @@ use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\ArtikelController as UserArtikelController;
 use App\Http\Controllers\User\PengaduanController as UserPengaduanController;
+use App\Http\Controllers\User\RiwayatPengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +81,6 @@ Route::get('/user/artikel/{id}', [UserArtikelController::class, 'detail']);
 # Pengaduan
 Route::get('/user/pengaduan', [UserPengaduanController::class, 'index']);
 Route::post('/user/pengaduan', [UserPengaduanController::class, 'store']);
+
+# Riwayat Pengaduan
+Route::get('/user/riwayat-pengaduan', [RiwayatPengaduanController::class, 'index']);
