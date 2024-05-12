@@ -69,7 +69,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-center">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#DetailModal{{ $data->id }}" class="btn btn-info btn-icon">
                                                 <i class="fas fa-eye
                                         "></i>

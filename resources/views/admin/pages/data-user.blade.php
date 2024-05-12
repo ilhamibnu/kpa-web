@@ -62,7 +62,7 @@
                                     <td>{{ $data->email }}</td>
                                     <th>{{ $data->role }}</th>
                                     <td>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-center">
                                             <button class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#EditModal{{ $data->id }}">
                                                 <a href="#" class="fas fa-pencil-alt"></a>
                                             </button>

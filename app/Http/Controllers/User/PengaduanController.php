@@ -48,4 +48,5 @@ class PengaduanController extends Controller
 
         return redirect('/user/pengaduan')->with('pengaduan', 'Pengaduan berhasil ditambahkan');
     }
+
 }
