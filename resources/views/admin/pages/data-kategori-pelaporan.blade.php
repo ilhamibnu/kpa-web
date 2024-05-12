@@ -59,11 +59,11 @@
                                     <td>{{ $data->name }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <button class="btn btn-primary btn-icon">
-                                                <a href="#" class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#EditModal{{ $data->id }}"></a>
+                                            <button class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#EditModal{{ $data->id }}">
+                                                <a href="#" class="fas fa-pencil-alt"></a>
                                             </button>
-                                            <button class="btn btn-danger btn-icon">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#DeleteModal{{ $data->id }}" class="fas fa-trash"></a>
+                                            <button class="btn btn-danger btn-icon" data-bs-toggle="modal" data-bs-target="#DeleteModal{{ $data->id }}">
+                                                <a href="#" class="fas fa-trash"></a>
                                             </button>
                                         </div>
                                     </td>
