@@ -4,8 +4,8 @@
             <div class="main-responsive-menu">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('landing/assets/img/logo.png') }}" class="black-logo" alt="image">
-                        <img src="{{ asset('landing/assets/img/logo-2.png') }}" class="white-logo" alt="image">
+                        <img src="{{ asset('landing/assets/img/logo.jpg') }}" width="35px" class="black-logo" alt="image">
+                        <img src="{{ asset('landing/assets/img/logo.jpg') }}" width="35px" class="white-logo" alt="image">
                     </a>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 </div>
 </div>
 
-<div class="others-option-for-responsive">
+{{-- <div class="others-option-for-responsive">
     <div class="container">
         <div class="dot-menu">
             <div class="inner">
@@ -131,5 +131,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 </div>
