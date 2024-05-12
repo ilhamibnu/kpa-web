@@ -12,7 +12,7 @@
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data tables</li>
+                <li class="breadcrumb-item active" aria-current="page">Data Pengaduan</li>
             </ol>
         </div>
     </div>
