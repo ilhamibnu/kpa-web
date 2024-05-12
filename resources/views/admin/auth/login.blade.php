@@ -13,10 +13,10 @@
     <meta name="Keywords" content="CodeIgniter Admin & Dashboard Template, Codeigniter Admin Template, Codeigniter admin panel, Codeigniter Bootstrap 5, Codeigniter admin template Bootstrap 5, Codeigniter Templates Using Bootstrap Admin, codeigniter admin, codeigniter dashboard, Admin & Dashboard Template, admin template, admin dashboard, admin panel, Bootstrap 5 admin template " />
 
     <!-- Title -->
-    <title> Nowa – CodeIgniter Admin & Dashboard Template </title>
+    <title>Login - Forum Anak Kabupaten Pasuruan</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('admin/assets/img/brand/favicon.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('admin/assets/img/logo.jpg') }}" type="image/x-icon" />
 
     <!-- Icons css -->
     <link href="{{ asset('admin/assets/css/icons.css') }}" rel="stylesheet">
@@ -90,51 +90,53 @@
                             <!-- Demo content-->
                             <div class="main-card-signin d-md-flex">
                                 <div class="wd-100p">
-                                    <div class="d-flex mb-4"><a href="index.html"><img src="{{ asset('admin/assets/img/brand/favicon.png') }}" class="sign-favicon ht-40" alt="logo"></a></div>
-                                    <div class="">
-                                        <div class="main-signup-header">
-                                            <h2>Welcome back!</h2>
-                                            <h6 class="font-weight-semibold mb-4">Please sign in to continue.</h6>
-                                            <div class="panel panel-primary">
-                                                <div class="panel-body tabs-menu-body border-0 p-3">
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane active" id="tab5">
-                                                            <form action="/login" method="post">
-                                                                @method('POST')
-                                                                @csrf
+                                    {{-- <div class="d-flex mb-4"><a href="/login"><img src="{{ asset('admin/assets/img/logo.jpg') }}" class="sign-favicon ht-40" alt="logo"></a></div> --}}
+                                <div class="">
+                                    <div class="text-center">
+                                        <img src="{{ asset('admin/assets/img/logo.jpg') }}" class="img-fluid mb-4" alt="logo">
+                                    </div>
+                                    <div class="main-signup-header">
+                                        <h2>Welcome back!</h2>
+                                        <h6 class="font-weight-semibold mb-4">Please sign in to continue.</h6>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body tabs-menu-body border-0 p-3">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab5">
+                                                        <form action="/login" method="post">
+                                                            @method('POST')
+                                                            @csrf
 
-                                                                @if($errors->any())
-                                                                <div class="alert alert-danger alert-dismissible fade show mt-2">
+                                                            @if($errors->any())
+                                                            <div class="alert alert-danger alert-dismissible fade show mt-2">
 
 
 
-                                                                    <?php
+                                                                <?php
 
                                                                         $nomer = 1;
 
                                                                         ?>
 
-                                                                    @foreach($errors->all() as $error)
-                                                                    <li>{{ $nomer++ }}. {{ $error }}</li>
-                                                                    @endforeach
-                                                                </div>
-                                                                @endif
-                                                                <div class="form-group">
-                                                                    <label>Email</label> <input name="email" class="form-control" placeholder="Enter your email" type="text">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Password</label> <input name="password" class="form-control" placeholder="Enter your password" type="password">
-                                                                </div><button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                                                @foreach($errors->all() as $error)
+                                                                <li>{{ $nomer++ }}. {{ $error }}</li>
+                                                                @endforeach
+                                                            </div>
+                                                            @endif
+                                                            <div class="form-group">
+                                                                <label>Email</label> <input name="email" class="form-control" placeholder="Enter your email" type="text">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Password</label> <input name="password" class="form-control" placeholder="Enter your password" type="password">
+                                                            </div><button type="submit" class="btn btn-primary btn-block">Sign In</button>
 
-                                                            </form>
-                                                        </div>
-
+                                                        </form>
                                                     </div>
+
                                                 </div>
                                             </div>
-
-
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -143,6 +145,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -196,6 +199,20 @@
 
     </script>
     @endif
+
+    @if(Session::get('loginError'))
+    <script>
+        swal("Gagal!"
+            , "Email atau Password Salah"
+            , "error"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+
 </body>
 
 <!-- Mirrored from codeigniter.spruko.com/nowa/nowa_demo/signin by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Feb 2024 08:54:17 GMT -->

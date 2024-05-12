@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-
+@section('title', 'Data Pengaduan - ')
 @section('content')
 <div class="main-container container-fluid">
 
@@ -43,17 +43,17 @@
                         @endforeach
                     </div>
                     @endif
-                    <div class="table-responsive  export-table">
-                        <table id="file-datatable" class="table table-bordered">
+                    <div class="table-responsive">
+                        <table id="file-datatable" class="table table-bordered text-nowrap border-bottom">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>No Telepon</th>
+                                    <th>Jenis</th>
                                     <th>Subjek</th>
                                     <th>Isi</th>
-                                    <th>User</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,6 +64,7 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->no_telp }}</td>
+                                    <td>{{ $data->kategoripelaporan->name }}</td>
                                     <td>{{ $data->subjek }}</td>
                                     <td>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#IsiModal{{ $data->id }}" class="btn btn-warning btn-icon">
@@ -71,7 +72,6 @@
                                         "></i>
                                         </a>
                                     </td>
-                                    <th>{{ $data->user->name }}</th>
 
                                     <td>
                                         <div class="d-flex">
@@ -101,15 +101,17 @@
 
                                                 <div class="modal-body">
 
-                                                    <div class="row">
+                                                    <div class="">
                                                         <h2>{{ $data->subjek }}</h2>
+
                                                         <div class="mb-2 mt-2">
                                                             <p>{!! nl2br(e($data->isi)) !!}</p>
                                                         </div>
 
                                                         <div class="mb-2 mt-2">
                                                             <p>
-                                                                Creator : {{ $data->name }}
+                                                                Kategori : {{ $data->kategoripelaporan->name }} <br>
+                                                                Nama Pelapor : {{ $data->name }}
                                                             </p>
 
                                                         </div>
@@ -137,6 +139,7 @@
                                             <form action="" method="POST" enctype="multipart/form-data">
 
                                                 <div class="modal-body">
+
 
                                                     <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Subject</label>
@@ -174,7 +177,7 @@
 
                                                     <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Name</label>
-                                                        <input type="text" name="name" value="{{ $data->email }}" class="form-control" id="recipient-name">
+                                                        <input type="text" name="name" value="{{ $data->name }}" class="form-control" id="recipient-name">
                                                     </div>
 
                                                     <div class="mb-3">
@@ -185,6 +188,17 @@
                                                     <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">No Telepon</label>
                                                         <input type="text" name="no_telp" value="{{ $data->no_telp }}" class="form-control" id="recipient-name">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label">Jenis</label>
+                                                        <select name="id_kategori_pelaporan" class="form-control" id="">
+                                                            <option value="{{ $data->id_kategori_pelaporan }}" selected>{{ $data->kategoripelaporan->name }}</option>
+                                                            @foreach ($kategori_pelaporan as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                            @endforeach
+
+                                                        </select>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -267,6 +281,16 @@
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">No Telepon</label>
                                             <input type="text" name="no_telp" class="form-control" id="recipient-name">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Jenis</label>
+                                            <select name="id_kategori_pelaporan" class="form-control" id="">
+                                                <option disabled selected value="">Pilih Kategori</option>
+                                                @foreach ($kategori_pelaporan as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         <div class="mb-3">

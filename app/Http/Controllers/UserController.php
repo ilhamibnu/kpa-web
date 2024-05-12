@@ -11,7 +11,6 @@ class UserController extends Controller
     {
         $user = User::where('role', 'user')->get();
         return view('admin.pages.data-user', [
-
             'user' => $user
         ]);
     }
@@ -37,7 +36,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->role = 'user';
+        $user->role = 'admin';
         $user->save();
 
         return redirect('/data-user')->with('store', 'User berhasil ditambahkan');
@@ -90,6 +89,4 @@ class UserController extends Controller
 
         return redirect('/data-user')->with('destroy', 'User berhasil dihapus');
     }
-
-
 }

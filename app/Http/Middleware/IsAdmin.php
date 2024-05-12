@@ -15,10 +15,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin') {
             return $next($request);
         }
 
-        return redirect('/login')->with('error', 'Anda tidak memiliki akses sebagai admin');
+        return redirect('/dashboard')->with('andatidakpunyaakses', 'Anda tidak memiliki akses sebagai admin');
     }
 }

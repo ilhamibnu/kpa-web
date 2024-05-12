@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-
+@section('title', 'Dashboard - ')
 @section('content')
 
 <div class="main-container container-fluid">

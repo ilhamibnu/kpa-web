@@ -3,8 +3,8 @@
         <div class="main-header-left ">
             <div class="responsive-logo">
                 <a href="index.html" class="header-logo">
-                    <img src="{{ asset('admin/assets/img/brand/logo.png') }}" class="mobile-logo logo-1" alt="logo">
-                    <img src="{{ asset('admin/assets/img/brand/logo-white.png') }}" class="mobile-logo dark-logo-1" alt="logo">
+                    <img src="{{ asset('admin/assets/img/logo.jpg') }}" class="mobile-logo logo-1 main-img-user" alt="logo">
+                    <img src="{{ asset('admin/assets/img/logo.jpg') }}" class="mobile-logo dark-logo-1 main-img-user" alt="logo">
                 </a>
             </div>
             <div class="app-sidebar__toggle" data-bs-toggle="sidebar">
@@ -13,8 +13,8 @@
             </div>
             <div class="logo-horizontal">
                 <a href="index.html" class="header-logo">
-                    <img src="{{ asset('admin/assets/img/brand/logo.png') }}" class="mobile-logo logo-1" alt="logo">
-                    <img src="{{ asset('admin/assets/img/brand/logo-white.png') }}" class="mobile-logo dark-logo-1" alt="logo">
+                    <img src="{{ asset('admin/assets/img/logo.jpg') }}" class="mobile-logo logo-1 main-img-user" alt="logo">
+                    <img src="{{ asset('admin/assets/img/logo.jpg') }}" class="mobile-logo dark-logo-1 main-img-user" alt="logo">
                 </a>
             </div>
             <div class="main-header-center ms-4 d-sm-none d-md-none d-lg-block form-group">
@@ -40,11 +40,11 @@
                         </li>
 
                         <li class="dropdown main-profile-menu nav nav-item nav-link ps-lg-2">
-                            <a class="new nav-link profile-user d-flex" href="#" data-bs-toggle="dropdown"><img alt="" src="{{ asset('admin/assets/img/faces/2.jpg') }}" class=""></a>
+                            <a class="new nav-link profile-user d-flex" href="#" data-bs-toggle="dropdown"><img alt="" src="{{ asset('admin/assets/img/logo.jpg') }}" class=""></a>
                             <div class="dropdown-menu">
                                 <div class="menu-header-content p-3 border-bottom">
                                     <div class="d-flex wd-100p">
-                                        <div class="main-img-user"><img alt="" src="{{ asset('admin/assets/img/faces/2.jpg') }}" class=""></div>
+                                        <div class="main-img-user"><img alt="" src="{{ asset('admin/assets/img/logo.jpg') }}" class=""></div>
                                         <div class="ms-3 my-auto">
                                             <h6 class="tx-15 font-weight-semibold mb-0">{{ Auth::user()->name }}</h6><span class="dropdown-title-text subtext op-6  tx-12">{{ Auth::user()->role }}</span>
                                         </div>

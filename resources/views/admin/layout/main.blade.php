@@ -12,10 +12,10 @@
     <meta name="Keywords" content="CodeIgniter Admin & Dashboard Template, Codeigniter Admin Template, Codeigniter admin panel, Codeigniter Bootstrap 5, Codeigniter admin template Bootstrap 5, Codeigniter Templates Using Bootstrap Admin, codeigniter admin, codeigniter dashboard, Admin & Dashboard Template, admin template, admin dashboard, admin panel, Bootstrap 5 admin template" />
 
     <!-- Title -->
-    <title> Nowa – CodeIgniter Admin & Dashboard Template </title>
+    <title>@yield('title') Forum Anak Kabupaten Pasuruan</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('admin/assets/img/brand/favicon.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('admin/assets/img/logo.jpg') }}" type="image/x-icon" />
 
     <!-- Icons css -->
     <link href="{{ asset('admin/assets/css/icons.css') }}" rel="stylesheet">
@@ -238,6 +238,30 @@
         swal("Done!"
             , "Profil Berhasil Diubah"
             , "success"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+    @if(Session::get('gagal'))
+    <script>
+        swal("Gagal!"
+            , "Data Gagal Dihapus"
+            , "error"
+            , {
+                button: "OK"
+            , });
+
+    </script>
+    @endif
+
+    @if(Session::get('andatidakpunyaakses'))
+    <script>
+        swal("Gagal!"
+            , "Anda Tidak Memiliki Akses"
+            , "error"
             , {
                 button: "OK"
             , });

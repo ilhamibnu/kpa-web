@@ -1,5 +1,5 @@
 @extends('landing.layout.main')
-
+@section('title', 'Pengaduan - ')
 @section('content')
 
 <!-- Start Page Banner -->
@@ -59,6 +59,15 @@
 
                 <div class="form-group">
                     <input type="text" name="no_telp" class="form-control" placeholder="Phone Number">
+                </div>
+
+                <div class="form-group">
+                    <select name="id_kategori_pelaporan" class="form-control">
+                        <option value="">Pilih Kategori</option>
+                        @foreach($kategori_pelaporan as $k)
+                        <option value="{{ $k->id }}">{{ $k->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">

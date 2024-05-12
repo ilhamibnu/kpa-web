@@ -15,13 +15,13 @@ class Pengaduan extends Model
         'name',
         'email',
         'no_telp',
+        'id_kategori_pelaporan',
         'subjek',
         'isi',
-        'id_user'
     ];
 
-    public function user()
+    public function kategoripelaporan()
     {
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->belongsTo(KategoriPelaporan::class, 'id_kategori_pelaporan');
     }
 }

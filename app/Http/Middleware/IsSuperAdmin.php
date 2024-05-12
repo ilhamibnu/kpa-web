@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsUser
+class IsSuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class IsUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'user') {
+        if (auth()->user()->role == 'superadmin') {
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/dashboard')->with('andatidakpunyaakses', 'Anda tidak memiliki akses sebagai admin');
     }
 }

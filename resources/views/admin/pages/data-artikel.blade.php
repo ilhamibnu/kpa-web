@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-
+@section('title', 'Data Artikel - ')
 @section('content')
 <div class="main-container container-fluid">
 
@@ -95,7 +95,7 @@
 
                                                 <div class="modal-body">
 
-                                                    <div class="row">
+                                                    <div class="">
                                                         <div class="text-center">
                                                             <img src="{{ asset('artikel/image/' . $data->foto) }}" alt="" width="50px" height="50px">
                                                         </div>

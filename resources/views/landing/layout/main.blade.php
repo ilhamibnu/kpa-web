@@ -30,9 +30,9 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('landing/assets/css/responsive.css') }}">
 
-    <title>Ketan - Childcare & Kids School HTML Template</title>
+    <title>@yield('title') Layanan Forum Anak Kabupaten Pasuruan</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('landing/assets/img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('landing/assets/img/logo.jpg') }}">
 </head>
 
 <body>
@@ -69,10 +69,8 @@
                     <script>
                         document.write(new Date().getFullYear())
 
-                    </script> Ketan. All Rights Reserved by
-                    <a href="https://envytheme.com/" target="_blank">
-                        EnvyTheme
-                    </a>
+                    </script> Layanan Forum Anak Kabupaten Pasuruan. All Rights Reserved.
+
                 </p>
             </div>
         </div>

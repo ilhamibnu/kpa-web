@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pengaduan', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+        Schema::create('kategori_pelaporan', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -22,9 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('pengaduan', function (Blueprint $table) {
-            $table->dropForeign(['id_user']);
-            $table->dropColumn('id_user');
-        });
+        Schema::dropIfExists('kategori_pelaporan');
     }
 };

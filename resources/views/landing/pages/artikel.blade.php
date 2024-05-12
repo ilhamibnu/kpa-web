@@ -1,5 +1,5 @@
 @extends('landing.layout.main')
-
+@section('title', 'Artikel - ')
 @section('content')
 <!-- Start Page Banner -->
 <div class="page-banner-area">

@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Data User - ')
+@section('title', 'Data Kategori Pelaporan - ')
 @section('content')
 <div class="main-container container-fluid">
 
@@ -7,7 +7,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">DATA User </span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">DATA Kategori Pelaporan </span>
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb">
@@ -49,18 +49,14 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($user as $data )
+                                @foreach ($kategori_pelaporan as $data )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->email }}</td>
-                                    <th>{{ $data->role }}</th>
                                     <td>
                                         <div class="d-flex">
                                             <button class="btn btn-primary btn-icon">
@@ -81,7 +77,7 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
                                                 <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="/data-user/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                                            <form action="/data-kategori-pelaporan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="modal-body">
@@ -90,22 +86,6 @@
                                                         <label for="recipient-name" class="col-form-label">Name</label>
                                                         <input type="text" name="name" value="{{ $data->name }}" class="form-control" id="recipient-name">
                                                     </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="recipient-name" class="col-form-label">Email</label>
-                                                        <input type="text" name="email" value="{{ $data->email }}" class="form-control" id="recipient-name">
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="recipient-name" class="col-form-label">Password</label>
-                                                        <input type="password" name="password" class="form-control" id="recipient-name">
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="recipient-name" class="col-form-label">Re-Password</label>
-                                                        <input type="password" name="repassword" class="form-control" id="recipient-name">
-                                                    </div>
-
 
                                                 </div>
                                                 <div class="modal-footer">
@@ -126,7 +106,7 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
                                                 <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="/data-user/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                                            <form action="/data-kategori-pelaporan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                                 <div class="modal-body">
 
                                                     @method('DELETE')
@@ -158,7 +138,7 @@
                                     <h5 class="modal-title" id="exampleModalLabel">Add</h5>
                                     <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                 </div>
-                                <form action="/data-user" method="POST" enctype="multipart/form-data">
+                                <form action="/data-kategori-pelaporan" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('POST')
                                     <div class="modal-body">
@@ -168,22 +148,6 @@
                                             <label for="recipient-name" class="col-form-label">Name</label>
                                             <input type="text" name="name" class="form-control" id="recipient-name">
                                         </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Email</label>
-                                            <input type="text" name="email" class="form-control" id="recipient-name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Password</label>
-                                            <input type="password" name="password" class="form-control" id="recipient-name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Re-Password</label>
-                                            <input type="password" name="repassword" class="form-control" id="recipient-name">
-                                        </div>
-
 
                                     </div>
                                     <div class="modal-footer">

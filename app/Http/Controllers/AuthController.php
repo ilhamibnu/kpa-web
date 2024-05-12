@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (auth()->attempt($credentials)) {
-            if (auth()->user()->role == 'admin') {
+            if (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin') {
                 return redirect('/dashboard')->with('login', 'Anda berhasil login');
             } else {
                 return redirect('/')->with('login', 'Anda berhasil login');
