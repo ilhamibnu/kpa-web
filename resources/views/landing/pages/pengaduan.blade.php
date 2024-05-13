@@ -62,13 +62,23 @@
                 </div>
 
                 <div class="form-group">
+                    <select name="id_kecamatan" class="form-control">
+                        <option value="" disabled selected>Pilih Kecamatan</option>
+                        @foreach($kecamatan as $k)
+                        <option value="{{ $k->id }}">{{ $k->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <select name="id_kategori_pelaporan" class="form-control">
-                        <option value="">Pilih Kategori</option>
+                        <option value="" disabled selected>Pilih Kategori</option>
                         @foreach($kategori_pelaporan as $k)
                         <option value="{{ $k->id }}">{{ $k->name }}</option>
                         @endforeach
                     </select>
                 </div>
+
 
                 <div class="form-group">
                     <input type="text" name="subjek" class="form-control" placeholder="Subject">

@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KategoriPelaporan;
+use App\Models\Kecamatan;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use App\Models\KategoriPelaporan;
 
 class PengaduanController extends Controller
 {
     public function index()
     {
+        $kecamatan = Kecamatan::all();
         $kategori_pelaporan = KategoriPelaporan::all();
         $pengaduan = Pengaduan::all();
         return view('admin.pages.data-pengaduan', [
             'pengaduan' => $pengaduan,
-            'kategori_pelaporan' => $kategori_pelaporan
+            'kategori_pelaporan' => $kategori_pelaporan,
+            'kecamatan' => $kecamatan,
         ]);
     }
 
@@ -27,6 +30,8 @@ class PengaduanController extends Controller
             'id_kategori_pelaporan' => 'required', // 'jenis' => 'required
             'subjek' => 'required',
             'isi' => 'required',
+            'id_kecamatan' => 'required',
+            'status' => 'required',
         ], [
             'name.required' => 'Nama harus diisi',
             'email.required' => 'Email harus diisi',
@@ -35,6 +40,8 @@ class PengaduanController extends Controller
             'id_kategori_pelaporan.required' => 'Kategori Pelaporan harus diisi',
             'subjek.required' => 'Subjek harus diisi',
             'isi.required' => 'Isi harus diisi',
+            'id_kecamatan.required' => 'Kecamatan harus diisi',
+            'status.required' => 'Status harus diisi',
         ]);
 
         $pengaduan = new Pengaduan;
@@ -44,6 +51,8 @@ class PengaduanController extends Controller
         $pengaduan->id_kategori_pelaporan = $request->id_kategori_pelaporan;
         $pengaduan->subjek = $request->subjek;
         $pengaduan->isi = $request->isi;
+        $pengaduan->id_kecamatan = $request->id_kecamatan;
+        $pengaduan->status = $request->status;
         // $pengaduan->id_user = auth()->user()->id;
         $pengaduan->save();
 
@@ -59,6 +68,8 @@ class PengaduanController extends Controller
             'id_kategori_pelaporan' => 'required', // 'jenis' => 'required
             'subjek' => 'required',
             'isi' => 'required',
+            'id_kecamatan' => 'required',
+            'status' => 'required',
         ], [
             'name.required' => 'Nama harus diisi',
             'email.required' => 'Email harus diisi',
@@ -67,6 +78,8 @@ class PengaduanController extends Controller
             'id_kategori_pelaporan.required' => 'Kategori Pelaporan harus diisi',
             'subjek.required' => 'Subjek harus diisi',
             'isi.required' => 'Isi harus diisi',
+            'id_kecamatan.required' => 'Kecamatan harus diisi',
+            'status.required' => 'Status harus diisi',
         ]);
 
         $pengaduan = Pengaduan::find($id);
@@ -76,6 +89,8 @@ class PengaduanController extends Controller
         $pengaduan->id_kategori_pelaporan = $request->id_kategori_pelaporan;
         $pengaduan->subjek = $request->subjek;
         $pengaduan->isi = $request->isi;
+        $pengaduan->id_kecamatan = $request->id_kecamatan;
+        $pengaduan->status = $request->status;
         // $pengaduan->id_user = auth()->user()->id;
         $pengaduan->save();
 

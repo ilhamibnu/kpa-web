@@ -51,9 +51,11 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>No Telepon</th>
+                                    <th>Kecamatan</th>
                                     <th>Jenis</th>
                                     <th>Subjek</th>
-                                    <th>Isi</th>
+                                    {{-- <th>Isi</th> --}}
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,15 +66,22 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->no_telp }}</td>
+                                    <td>{{ $data->kecamatan->name }}</td>
                                     <td>{{ $data->kategoripelaporan->name }}</td>
                                     <td>{{ $data->subjek }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#IsiModal{{ $data->id }}" class="btn btn-warning btn-icon">
-                                            <i class="fas fa-eye
+                                    <i class="fas fa-eye
                                         "></i>
-                                        </a>
-                                    </td>
+                                    </a>
+                                    </td> --}}
 
+                                    <td>
+                                        @if($data->status == 'pending')
+                                        <span class="badge badge-danger">Belum Dilayani</span>
+                                        @elseif($data->status == 'done')
+                                        <span class="badge badge-success">Sudah Dilayani</span>
+                                        @endif
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#DetailModal{{ $data->id }}" class="btn btn-info btn-icon">
@@ -191,6 +200,18 @@
                                                     </div>
 
                                                     <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label">Kecamatan</label>
+                                                        <select name="id_kecamatan" class="form-control" id="">
+                                                            <option value="{{ $data->id_kecataman }}" selected>{{ $data->kecamatan->name }}</option>
+                                                            @foreach ($kecamatan as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                            @endforeach
+
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Jenis</label>
                                                         <select name="id_kategori_pelaporan" class="form-control" id="">
                                                             <option value="{{ $data->id_kategori_pelaporan }}" selected>{{ $data->kategoripelaporan->name }}</option>
@@ -198,6 +219,19 @@
                                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                             @endforeach
 
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label">Status</label>
+                                                        <select name="status" class="form-control" id="">
+                                                            @if($data->status == 'pending')
+                                                            <option value="pending" selected>Belum Dilayani</option>
+                                                            <option value="done">Sudah Dilayani</option>
+                                                            @elseif($data->status == 'done')
+                                                            <option value="done" selected>Sudah Dilayani</option>
+                                                            <option value="pending">Belum Dilayani</option>
+                                                            @endif
                                                         </select>
                                                     </div>
 
@@ -284,12 +318,32 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Kecamatan</label>
+                                            <select name="id_kecamatan" class="form-control" id="">
+                                                <option disabled selected value="">Pilih Kecamatan</option>
+                                                @foreach ($kecamatan as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Jenis</label>
                                             <select name="id_kategori_pelaporan" class="form-control" id="">
                                                 <option disabled selected value="">Pilih Kategori</option>
                                                 @foreach ($kategori_pelaporan as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Status</label>
+                                            <select name="status" class="form-control" id="">
+                                                <option disabled selected value="">Pilih Status</option>
+                                                <option value="pending">Belum Dilayani</option>
+                                                <option value="done">Sudah Dilayani</option>
                                             </select>
                                         </div>
 

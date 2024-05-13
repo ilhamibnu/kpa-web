@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="circle-icon bg-info-transparent text-center align-self-center overflow-hidden">
-                                  {{-- // icon artikel --}}
+                                    {{-- // icon artikel --}}
                                     <i class="fe fe-file  tx-16 text-info"></i>
                                 </div>
                             </div>
@@ -141,92 +141,18 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
                     <div class="card">
                         <div class="card-header pb-1">
-                            <h3 class="card-title mb-2">Browser Usage</h3>
+                            <h3 class="card-title mb-2">Visualisasi Data</h3>
                         </div>
                         <div class="card-body p-0">
                             <div class="browser-stats">
-                                <div class="d-flex align-items-center item  border-bottom my-2">
-                                    <div class="d-flex">
-                                        <img src="assets/img/svgicons/chrome.svg" alt="img" class="ht-30 wd-30 me-2">
-                                        <div class="">
-                                            <h6 class="">Chrome</h6>
-                                            <span class="text-muted tx-12">Google, Inc.</span>
-                                        </div>
-                                    </div>
-                                    <div class="ms-auto my-auto">
-                                        <div class="d-flex">
-                                            <span class="me-4 mt-1 font-weight-semibold tx-16">35,502</span>
-                                            <span class="text-success fs-13 my-auto"><i class="fe fe-trending-up text-success mx-2 my-auto"></i>12.75%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center item  border-bottom my-2">
-                                    <div class="d-flex">
-                                        <img src="assets/img/svgicons/edge.svg" alt="img" class="ht-30 wd-30 me-2">
-                                        <div class="">
-                                            <h6 class="">Edge</h6>
-                                            <span class="text-muted tx-12">Microsoft Corporation, Inc.</span>
-                                        </div>
-                                    </div>
-                                    <div class="ms-auto my-auto">
-                                        <div class="d-flex">
-                                            <span class="me-4 mt-1 font-weight-semibold tx-16">25,364</span>
-                                            <span class="text-success"><i class="fe fe-trending-down text-danger mx-2 my-auto"></i>24.37%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center item  border-bottom my-2">
-                                    <div class="d-flex">
-                                        <img src="assets/img/svgicons/firefox.svg" alt="img" class="ht-30 wd-30 me-2">
-                                        <div class="">
-                                            <h6 class="">Firefox</h6>
-                                            <span class="text-muted tx-12">Mozilla Foundation, Inc.</span>
-                                        </div>
-                                    </div>
-                                    <div class="ms-auto my-auto">
-                                        <div class="d-flex">
-                                            <span class="me-4 mt-1 font-weight-semibold tx-16">14,635</span>
-                                            <span class="text-success"><i class="fe fe-trending-up text-success mx-2 my-auto"></i>15,63%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center item  border-bottom my-2">
-                                    <div class="d-flex">
-                                        <img src="assets/img/svgicons/safari.svg" alt="img" class="ht-30 wd-30 me-2">
-                                        <div class="">
-                                            <h6 class="">Safari</h6>
-                                            <span class="text-muted tx-12">Apple Corporation, Inc.</span>
-                                        </div>
-                                    </div>
-                                    <div class="ms-auto my-auto">
-                                        <div class="d-flex">
-                                            <span class="me-4 mt-1 font-weight-semibold tx-16">35,657</span>
-                                            <span class="text-danger"><i class="fe fe-trending-up text-success mx-2 my-auto"></i>12.54%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center item my-2">
-                                    <div class="d-flex">
-                                        <img src="assets/img/svgicons/opera.svg" alt="img" class="ht-30 wd-30 me-2">
-                                        <div class="">
-                                            <h6 class="">Opera</h6>
-                                            <span class="text-muted tx-12">Opera, Inc.</span>
-                                        </div>
-                                    </div>
-                                    <div class="ms-auto my-auto">
-                                        <div class="d-flex">
-                                            <span class="me-4 mt-1 font-weight-semibold tx-16">12,563</span>
-                                            <span class="text-danger"><i class="fe fe-trending-down text-danger mx-2 my-auto"></i>15.12%</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="ht-300" id="vmap8"></div>
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
         {{-- <div class="col-xxl-7 col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -839,4 +765,54 @@
 
 
 </div>
+@endsection
+
+
+@section('js')
+
+<script>
+    // Inisialisasi peta
+    var map = L.map('map').setView([-7.6464, 112.9031], 11);
+
+    // Tambahkan tile layer OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Data GeoJSON kecamatan beserta jumlah pelaporan
+    var kecamatanData = {
+        "type": "FeatureCollection"
+        , "features": [{
+                "type": "Feature"
+                , "properties": {
+                    "nama": "Kecamatan A"
+                    , "jumlah_pelaporan": 20 // Contoh jumlah pelaporan untuk Kecamatan A
+                }
+                , "geometry": {
+                    /* Koordinat geometri kecamatan A */
+                }
+            },
+            // Tambahkan data kecamatan lainnya di sini
+        ]
+    };
+
+    // Tambahkan GeoJSON layer untuk kecamatan
+    var kecamatanLayer = L.geoJSON(kecamatanData, {
+        style: function(feature) {
+            return {
+                color: "red", // Warna garis pemisah kecamatan
+                weight: 2, // Lebar garis pemisah kecamatan (dalam piksel)
+                opacity: 1
+            };
+        }
+        , onEachFeature: function(feature, layer) {
+            var popupContent = "<b>" + feature.properties.nama + "</b><br>Jumlah Pelaporan: " + feature.properties.jumlah_pelaporan;
+            layer.bindPopup(popupContent);
+        }
+    }).addTo(map);
+
+    // Atur batas tampilan peta pada wilayah Kabupaten Pasuruan
+    map.fitBounds(kecamatanLayer.getBounds());
+
+</script>
 @endsection

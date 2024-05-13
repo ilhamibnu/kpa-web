@@ -18,10 +18,16 @@ class Pengaduan extends Model
         'id_kategori_pelaporan',
         'subjek',
         'isi',
+        'id_kecamatan',
     ];
 
     public function kategoripelaporan()
     {
         return $this->belongsTo(KategoriPelaporan::class, 'id_kategori_pelaporan');
+    }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan');
     }
 }

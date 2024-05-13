@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\ContactController;
@@ -64,6 +65,12 @@ Route::group(['middleware' => 'IsLogin'], function () {
     Route::post('/data-kategori-pelaporan', [KategoriPelaporanController::class, 'store'])->middleware('IsSuperAdmin');
     Route::put('/data-kategori-pelaporan/{id}', [KategoriPelaporanController::class, 'update'])->middleware('IsSuperAdmin');
     Route::delete('/data-kategori-pelaporan/{id}', [KategoriPelaporanController::class, 'destroy'])->middleware('IsSuperAdmin');
+
+    # Kecamatan
+    Route::get('/data-kecamatan', [KecamatanController::class, 'index'])->middleware('IsSuperAdmin');
+    Route::post('/data-kecamatan', [KecamatanController::class, 'store'])->middleware('IsSuperAdmin');
+    Route::put('/data-kecamatan/{id}', [KecamatanController::class, 'update'])->middleware('IsSuperAdmin');
+    Route::delete('/data-kecamatan/{id}', [KecamatanController::class, 'destroy'])->middleware('IsSuperAdmin');
 });
 
 ##### USER ######

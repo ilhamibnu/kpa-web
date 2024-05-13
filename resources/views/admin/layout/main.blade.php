@@ -20,6 +20,11 @@
     <!-- Icons css -->
     <link href="{{ asset('admin/assets/css/icons.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Include Leaflet JavaScript -->
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <!--  bootstrap css-->
     <link id="style" href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -39,6 +44,13 @@
     <!-- INTERNAL Switcher css -->
     <link href="{{ asset('admin/assets/switcher/css/switcher.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/assets/switcher/demo.css') }}" rel="stylesheet" />
+
+    <style>
+        #map {
+            height: 400px;
+        }
+
+    </style>
 </head>
 
 <body class="ltr main-body app sidebar-mini">
@@ -142,6 +154,22 @@
     <script src="{{ asset('admin/assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/table-data.js') }}"></script>
 
+    <!--Internal  Vector-maps js -->
+    <script src="{{ asset('admin/assets/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.canada.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.algeria.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.argentina.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.europe.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.germany.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.russia.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jqvmap/maps/jquery.vmap.france.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/vector-map.js') }}"></script>
+
+    <!-- Internal Vector-sampledata js -->
+    <script src="{{ asset('admin/assets/js/jquery.vmap.sampledata.js') }}"></script>
+
     <!--Internal Fileuploads js-->
     <script src="{{ asset('admin/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
@@ -183,6 +211,8 @@
 
     <!-- Switcher js -->
     <script src="{{ asset('admin/assets/switcher/js/switcher.js') }}"></script>
+
+    @yield('js')
 
     @if(Session::get('store'))
     <script>
