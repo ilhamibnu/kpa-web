@@ -40,10 +40,29 @@ class DashboardController extends Controller
         $kecamatan = Kecamatan::all();
         $kategori_pelaporan = KategoriPelaporan::all();
         // $id_kecamatan = $request->id_kecamatan;
+        // $id_kategori_pelaporan = $request->id_kategori_pelaporan;
+        // $date1 = $request->date1;
+        // $date2 = $request->date2;
+
+
+        // $data = DB::table('kecamatan')
+        //     ->leftJoin('pengaduan', function ($join) use ($request) {
+        //         $join->on('kecamatan.id', '=', 'pengaduan.id_kecamatan')
+        //             ->when($request->id_kategori_pelaporan != 0, function ($query) use ($request) {
+        //                 return $query->where('pengaduan.id_kategori_pelaporan', $request->id_kategori_pelaporan);
+        //             })
+        //             ->when($request->date1 != null && $request->date2 != null, function ($query) use ($request) {
+        //                 return $query->whereBetween('pengaduan.created_at', [$request->date1, $request->date2]);
+        //             });
+        //     })
+        //     ->select('kecamatan.name as kecamatan', DB::raw('COALESCE(COUNT(pengaduan.id), 0) as total'))
+        //     ->groupBy('kecamatan.id', 'kecamatan.name')
+        //     ->get();
+
+        $id_kecamatan = $request->id_kecamatan;
         $id_kategori_pelaporan = $request->id_kategori_pelaporan;
         $date1 = $request->date1;
         $date2 = $request->date2;
-
 
         $data = DB::table('kecamatan')
             ->leftJoin('pengaduan', function ($join) use ($request) {
@@ -56,6 +75,9 @@ class DashboardController extends Controller
                     });
             })
             ->select('kecamatan.name as kecamatan', DB::raw('COALESCE(COUNT(pengaduan.id), 0) as total'))
+            ->when($request->id_kecamatan != 0, function ($query) use ($request) {
+                return $query->where('kecamatan.id', $request->id_kecamatan);
+            })
             ->groupBy('kecamatan.id', 'kecamatan.name')
             ->get();
 

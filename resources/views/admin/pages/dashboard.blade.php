@@ -635,14 +635,17 @@
     @endphp;
     var persentase = @php echo json_encode($total);
     @endphp;
-
-    // Definisikan warna yang ingin Anda gunakan untuk setiap label
-    var colors = ['#FF5733', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF'];
-
+    var colors = [
+        '#FF5733', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57'
+        , '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#FFC133'
+        , '#5733FF', '#33FFAC', '#AC33FF', '#FF33A1', '#33FFA5'
+        , '#FFA533', '#335EFF', '#FF3358', '#33B5FF', '#FF3333'
+        , '#33FFB2', '#B233FF', '#FF33B2', '#33FF65', '#FF333A'
+    ];
     var options = {
         series: persentase
         , chart: {
-            width: 380
+            width: 800
             , type: 'pie'
         , }
         , labels: nama
