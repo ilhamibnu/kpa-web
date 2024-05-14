@@ -27,7 +27,7 @@ class PengaduanController extends Controller
             'email' => 'required|email',
             'no_telp' => 'required',
             'id_kategori_pelaporan' => 'required', // 'jenis' => 'required
-            'subjek' => 'required',
+            // 'subjek' => 'required',
             'isi' => 'required',
             'id_kecamatan' => 'required',
             'status' => 'required',
@@ -48,7 +48,7 @@ class PengaduanController extends Controller
         $pengaduan->email = $request->email;
         $pengaduan->no_telp = $request->no_telp;
         $pengaduan->id_kategori_pelaporan = $request->id_kategori_pelaporan;
-        $pengaduan->subjek = $request->subjek;
+        // $pengaduan->subjek = $request->subjek;
         $pengaduan->isi = $request->isi;
         $pengaduan->id_kecamatan = $request->id_kecamatan;
         $pengaduan->status = 'pending';

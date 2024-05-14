@@ -53,7 +53,7 @@
                                     <th>No Telepon</th>
                                     <th>Kecamatan</th>
                                     <th>Jenis</th>
-                                    <th>Subjek</th>
+                                    {{-- <th>Subjek</th> --}}
                                     {{-- <th>Isi</th> --}}
                                     <th>Status</th>
                                     <th>Action</th>
@@ -68,7 +68,7 @@
                                     <td>{{ $data->no_telp }}</td>
                                     <td>{{ $data->kecamatan->name }}</td>
                                     <td>{{ $data->kategoripelaporan->name }}</td>
-                                    <td>{{ $data->subjek }}</td>
+                                    {{-- <td>{{ $data->subjek }}</td> --}}
                                     {{-- <td>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#IsiModal{{ $data->id }}" class="btn btn-warning btn-icon">
                                     <i class="fas fa-eye
@@ -202,7 +202,7 @@
                                                     <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Kecamatan</label>
                                                         <select name="id_kecamatan" class="form-control" id="">
-                                                            <option value="{{ $data->id_kecataman }}" selected>{{ $data->kecamatan->name }}</option>
+                                                            <option value="{{ $data->id_kecamatan }}" selected>{{ $data->kecamatan->name }}</option>
                                                             @foreach ($kecamatan as $item)
                                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                             @endforeach
@@ -235,10 +235,10 @@
                                                         </select>
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    {{-- <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Subject</label>
                                                         <input type="text" name="subjek" value="{{ $data->subjek }}" class="form-control" id="recipient-name">
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="mb-3">
                                                         <label for="message-text" class="col-form-label">Isi</label>
@@ -347,10 +347,10 @@
                                             </select>
                                         </div>
 
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Subject</label>
                                             <input type="text" name="subjek" class="form-control" id="recipient-name">
-                                        </div>
+                                        </div> --}}
 
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Isi</label>

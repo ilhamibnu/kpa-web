@@ -11,7 +11,7 @@
                         <div class="col-lg-6">
                             <div class="main-banner-content">
                                 <span>Selamat datang di layanan Forum Anak Kabupaten Pasuruan</span>
-                                <h1>Forum Anak adalah wadah Partisipasi Anak</h1>
+                                <h1>Forum Anak Adalah Wadah Partisipasi Anak</h1>
                                 <p>dimana anggotanya merupakan perwakilan dari Kelompok Anak atau Kelompok Kegiatan Anak atau perseorangan, dan dibina oleh pemerintah, sebagai sarana menyalurkan aspirasi, suara, pendapat, keinginan, dan kebutuhan Anak dalam proses pembangunan.</p>
 
                                 <div class="banner-btn">

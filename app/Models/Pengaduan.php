@@ -16,7 +16,7 @@ class Pengaduan extends Model
         'email',
         'no_telp',
         'id_kategori_pelaporan',
-        'subjek',
+        // 'subjek',
         'isi',
         'id_kecamatan',
     ];

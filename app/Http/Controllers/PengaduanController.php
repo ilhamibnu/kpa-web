@@ -28,7 +28,7 @@ class PengaduanController extends Controller
             'email' => 'required|email',
             'no_telp' => 'required',
             'id_kategori_pelaporan' => 'required', // 'jenis' => 'required
-            'subjek' => 'required',
+            // 'subjek' => 'required',
             'isi' => 'required',
             'id_kecamatan' => 'required',
             'status' => 'required',
@@ -38,7 +38,7 @@ class PengaduanController extends Controller
             'email.email' => 'Email tidak valid',
             'no_telp.required' => 'No. Telp harus diisi',
             'id_kategori_pelaporan.required' => 'Kategori Pelaporan harus diisi',
-            'subjek.required' => 'Subjek harus diisi',
+            // 'subjek.required' => 'Subjek harus diisi',
             'isi.required' => 'Isi harus diisi',
             'id_kecamatan.required' => 'Kecamatan harus diisi',
             'status.required' => 'Status harus diisi',
@@ -49,7 +49,7 @@ class PengaduanController extends Controller
         $pengaduan->email = $request->email;
         $pengaduan->no_telp = $request->no_telp;
         $pengaduan->id_kategori_pelaporan = $request->id_kategori_pelaporan;
-        $pengaduan->subjek = $request->subjek;
+        // $pengaduan->subjek = $request->subjek;
         $pengaduan->isi = $request->isi;
         $pengaduan->id_kecamatan = $request->id_kecamatan;
         $pengaduan->status = $request->status;
@@ -66,7 +66,7 @@ class PengaduanController extends Controller
             'email' => 'required|email',
             'no_telp' => 'required',
             'id_kategori_pelaporan' => 'required', // 'jenis' => 'required
-            'subjek' => 'required',
+            // 'subjek' => 'required',
             'isi' => 'required',
             'id_kecamatan' => 'required',
             'status' => 'required',
@@ -76,7 +76,7 @@ class PengaduanController extends Controller
             'email.email' => 'Email tidak valid',
             'no_telp.required' => 'No. Telp harus diisi',
             'id_kategori_pelaporan.required' => 'Kategori Pelaporan harus diisi',
-            'subjek.required' => 'Subjek harus diisi',
+            // 'subjek.required' => 'Subjek harus diisi',
             'isi.required' => 'Isi harus diisi',
             'id_kecamatan.required' => 'Kecamatan harus diisi',
             'status.required' => 'Status harus diisi',
@@ -87,7 +87,7 @@ class PengaduanController extends Controller
         $pengaduan->email = $request->email;
         $pengaduan->no_telp = $request->no_telp;
         $pengaduan->id_kategori_pelaporan = $request->id_kategori_pelaporan;
-        $pengaduan->subjek = $request->subjek;
+        // $pengaduan->subjek = $request->subjek;
         $pengaduan->isi = $request->isi;
         $pengaduan->id_kecamatan = $request->id_kecamatan;
         $pengaduan->status = $request->status;
