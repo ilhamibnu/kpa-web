@@ -46,9 +46,7 @@
     <link href="{{ asset('admin/assets/switcher/demo.css') }}" rel="stylesheet" />
 
     <style>
-        #map {
-            height: 400px;
-        }
+
 
     </style>
 </head>
@@ -138,6 +136,8 @@
     <script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script> --}}
+
+    <script src="{{ asset('admin/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
     <!-- Internal Data tables -->
     <script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>

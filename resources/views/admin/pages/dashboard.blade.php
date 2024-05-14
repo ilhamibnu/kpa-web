@@ -141,245 +141,106 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-xxl-7 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="card custom-card overflow-hidden">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
                     <div class="card">
-                        <div class="card-header pb-1">
-                            <h3 class="card-title mb-2">Visualisasi Data</h3>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="browser-stats">
-                                <div class="ht-300" id="vmap8"></div>
-                            </div>
+                        <div class="card-body">
+                            <form action="/dashboard" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-7 col-md-6 col-sm-12">
+                                        <div class="text-justified align-items-center">
+                                            <p class="text-dark tx-14 mb-3 lh-3">Filter</p>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group
+                                            ">
+                                                    <label for="exampleFormControlSelect1">Pilih Kecamatan</label>
+                                                    <select class="form-control" name="id_kecamatan" id="exampleFormControlSelect1">
+                                                        <option value="0">Pilih Kecamatan</option>
+                                                        @foreach ($kecamatan as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group
+                                            ">
+                                                    <label for="exampleFormControlSelect1">Pilih Kategori Pelaporan</label>
+                                                    <select class="form-control" name="id_kategori_pelaporan" id="exampleFormControlSelect1">
+                                                        <option value="0">Pilih Kategori Pelaporan</option>
+                                                        @foreach ($kategori_pelaporan as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-9 col-lg-7 col-md-6 col-sm-12">
+                                        <div class="text-justified align-items-center">
+                                            <p class="text-dark tx-14 mb-3 lh-3">Date</p>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group
+                                            ">
+                                                    <label for="exampleFormControlSelect1">Date</label>
+                                                    <input type="date" class="form-control" name="date1" id="exampleFormControlSelect1">
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group
+                                            ">
+                                                    <label for="exampleFormControlSelect1">Date</label>
+                                                    <input type="date" class="form-control" name="date2" id="exampleFormControlSelect1">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-xl-9 col-lg-7 col-md-6 col-sm-12">
+                                        <div class="text-justified align-items-center">
+                                            <p class="text-dark tx-14 mb-3 lh-3">Filter</p>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Filter</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        {{-- <div class="col-xxl-7 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <div class="card custom-card overflow-hidden">
                 <div class="card-header border-bottom-0">
                     <div>
-                        <h3 class="card-title mb-2 ">Project Budget</h3> <span class="d-block tx-12 mb-0 text-muted"></span>
+                        <h3 class="card-title mb-2 ">Jumlah Data</h3> <span class="d-block tx-12 mb-0 text-muted"></span>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="statistics1"></div>
+                    <div id="chart"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-lg-12 col-xl-6">
-                    <div class="card overflow-hidden">
-                        <div class="card-header pb-1">
-                            <h3 class="card-title mb-2">Recent Customers</h3>
-                        </div>
-                        <div class="card-body p-0 customers mt-1">
-                            <div class="list-group list-lg-group list-group-flush">
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/2.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-0">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Samantha Melon</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1234</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p tx-14">
-                                                        <span class="float-end badge badge-success-transparent">
-                                                            <span class="op-7 text-success font-weight-semibold">paid </span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/1.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-1">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Allie Grater</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1234</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p tx-14">
-                                                        <span class="float-end badge badge-danger-transparent ">
-                                                            <span class="op-7 text-danger font-weight-semibold">Pending</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/5.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-1">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Gabe Lackmen</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1234</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p  tx-14">
-                                                        <span class="float-end badge badge-danger-transparent ">
-                                                            <span class="op-7 text-danger font-weight-semibold">Pending</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/7.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-1">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Manuel Labor</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1234</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p tx-14">
-                                                        <span class="float-end badge badge-success-transparent ">
-                                                            <span class="op-7 text-success font-weight-semibold">Paid</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/9.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-1">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Hercules Bing</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1754</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p tx-14">
-                                                        <span class="float-end badge badge-success-transparent ">
-                                                            <span class="op-7 text-success font-weight-semibold">Paid</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="border-0">
-                                    <div class="list-group-item list-group-item-action border-0">
-                                        <div class="media mt-0">
-                                            <img class="avatar-lg rounded-circle me-3 my-auto shadow" src="assets/img/faces/11.jpg" alt="Image description">
-                                            <div class="media-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mt-1">
-                                                        <h5 class="mb-1 tx-13 font-weight-sembold text-dark">Manuel Labor</h5>
-                                                        <p class="mb-0 tx-12 text-muted">User ID: #1234</p>
-                                                    </div>
-                                                    <span class="ms-auto wd-45p tx-14">
-                                                        <span class="float-end badge badge-danger-transparent ">
-                                                            <span class="op-7 text-danger font-weight-semibold">Pending</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-xl-6">
-                    <div class="card">
-                        <div class="card-header pb-3">
-                            <h3 class="card-title mb-2">MAIN TASKS</h3>
-                        </div>
-                        <div class="card-body p-0 customers mt-1">
-                            <div class="">
-                                <label class="p-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        accurate information at any given point.
-                                    </span>
-                                    <span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        sharing the information with clients or stakeholders.
-                                    </span>
-                                    <span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        Hearing the information and responding .
-                                    </span>
-                                    <span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2 float-end">22 hrs</span></span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        Setting up and customizing your own sales.
-                                    </span>
-                                    <span class="ms-auto"> <span class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">1 Day</span></span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        To have a complete 360° overview of sales information, having.
-                                    </span>
-                                    <span class="ms-auto"> <span class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">2 Days</span></span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto">
-                                        New Admin Launched.
-                                    </span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto mb-4">
-                                        To maximize profits and improve productivity.
-                                    </span>
-                                </label>
-                                <label class="p-2 mt-2 d-flex">
-                                    <span class="check-box mb-0 ms-2">
-                                        <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-                                    </span>
-                                    <span class="mx-3 my-auto mb-4">
-                                        To improve profits.
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+
+        </div>
         <!-- </div> -->
     </div>
     <!-- row closed -->
@@ -769,50 +630,38 @@
 
 
 @section('js')
-
 <script>
-    // Inisialisasi peta
-    var map = L.map('map').setView([-7.6464, 112.9031], 11);
+    var nama = @php echo json_encode($nama_kecamatan);
+    @endphp;
+    var persentase = @php echo json_encode($total);
+    @endphp;
 
-    // Tambahkan tile layer OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    // Definisikan warna yang ingin Anda gunakan untuk setiap label
+    var colors = ['#FF5733', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF', '#FF335B', '#33C1FF', '#FF5983', '#33FFC1', '#335BFF', '#FF33C1', '#33FF57', '#5733FF'];
 
-    // Data GeoJSON kecamatan beserta jumlah pelaporan
-    var kecamatanData = {
-        "type": "FeatureCollection"
-        , "features": [{
-                "type": "Feature"
-                , "properties": {
-                    "nama": "Kecamatan A"
-                    , "jumlah_pelaporan": 20 // Contoh jumlah pelaporan untuk Kecamatan A
+    var options = {
+        series: persentase
+        , chart: {
+            width: 380
+            , type: 'pie'
+        , }
+        , labels: nama
+        , colors: colors, // Gunakan warna yang telah ditentukan
+        responsive: [{
+            breakpoint: 480
+            , options: {
+                chart: {
+                    width: 200
                 }
-                , "geometry": {
-                    /* Koordinat geometri kecamatan A */
+                , legend: {
+                    position: 'bottom'
                 }
-            },
-            // Tambahkan data kecamatan lainnya di sini
-        ]
+            }
+        }]
     };
 
-    // Tambahkan GeoJSON layer untuk kecamatan
-    var kecamatanLayer = L.geoJSON(kecamatanData, {
-        style: function(feature) {
-            return {
-                color: "red", // Warna garis pemisah kecamatan
-                weight: 2, // Lebar garis pemisah kecamatan (dalam piksel)
-                opacity: 1
-            };
-        }
-        , onEachFeature: function(feature, layer) {
-            var popupContent = "<b>" + feature.properties.nama + "</b><br>Jumlah Pelaporan: " + feature.properties.jumlah_pelaporan;
-            layer.bindPopup(popupContent);
-        }
-    }).addTo(map);
-
-    // Atur batas tampilan peta pada wilayah Kabupaten Pasuruan
-    map.fitBounds(kecamatanLayer.getBounds());
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
 
 </script>
 @endsection

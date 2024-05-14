@@ -18,10 +18,34 @@
                                     <a href="#" class="default-btn">
                                         Yuk jadi Pelopor dan Pelapor menuju Anak Kabupaten Pasuruan yang sehat, cerdas, ceria
                                     </a>
-                                    {{-- <a href="#" class="optional-btn">
-                                        Find Out More
-                                    </a> --}}
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="#" class="default-btn">
+                                                Ayo lebih dengan FA Kab. Pasuruan dengan melihat bot telegram kami
+
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="single-footer-widget">
+
+                                                <ul class="social">
+                                                    <li>
+                                                        <a href="https://t.me/FAKabPasuruanBot" target="_blank">
+                                                            <i class="bx bxl-telegram"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
+
+                                <div class="banner-btn">
+
+                                </div>
+
                             </div>
                         </div>
 

@@ -41,6 +41,7 @@ Route::group(['middleware' => 'IsLogin'], function () {
 
     # Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsAdmin');
+    Route::post('/dashboard', [DashboardController::class, 'filter'])->middleware('IsAdmin');
 
     # Artikel
     Route::get('/data-artikel', [ArtikelController::class, 'index'])->middleware('IsAdmin');
