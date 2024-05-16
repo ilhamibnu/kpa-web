@@ -26,6 +26,12 @@
 <section class="apply-area ptb-100">
     <div class="container">
         <div class="apply-form">
+            <div class="text-center">
+                <a href="#" class="default-btn">
+                    Selamat datang di layanan pengaduan Forum Anak Kabupaten Pasuruan. <br>
+                    Kamu bisa mengisi form di bawah jika ingin membuat pengaduan.
+                </a>
+            </div>
             <form action="/user/pengaduan" method="POST">
                 @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
@@ -92,6 +98,27 @@
                     Submit Now
                 </button>
             </form>
+
+
+            @if(Session::get('pengaduan'))
+            <div class="text-center mt-4">
+                <a href="#" class="default-btn">
+                    Selamat datang di layanan pengaduan Forum Anak Kabupaten Pasuruan. <br>
+                    Kamu bisa mengisi form di bawah jika ingin membuat pengaduan.
+                </a>
+                <div class="single-footer-widget">
+
+                    <ul class="social">
+                        <li>
+                            <a href="https://t.me/FAKabPasuruanBot" target="_blank">
+                                <i class="bx bxl-telegram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            @endif
+
         </div>
     </div>
 </section>

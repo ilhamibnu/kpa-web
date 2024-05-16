@@ -33,19 +33,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         KategoriPelaporan::create([
-            'name' => 'Pemenuhan hak dan perlindungan khusus anak',
+            'name' => 'Pelecehan',
         ]);
 
         KategoriPelaporan::create([
-            'name' => 'Pelecehan dan kekerasan',
+            'name' => 'Penganiayaan',
         ]);
 
         KategoriPelaporan::create([
-            'name' => 'Penyalahgunaan Napza',
+            'name' => 'Persetubuhan',
         ]);
 
         KategoriPelaporan::create([
-            'name' => 'Pernikahan usia dini',
+            'name' => 'Anak Berhadapan Dengan Hukum',
+        ]);
+
+        KategoriPelaporan::create([
+            'name' => 'Bullying',
         ]);
 
         Kecamatan::create([

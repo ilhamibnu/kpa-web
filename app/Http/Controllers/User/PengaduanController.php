@@ -30,7 +30,7 @@ class PengaduanController extends Controller
             // 'subjek' => 'required',
             'isi' => 'required',
             'id_kecamatan' => 'required',
-            'status' => 'required',
+
         ], [
             'name.required' => 'Nama harus diisi',
             'email.required' => 'Email harus diisi',
@@ -40,7 +40,7 @@ class PengaduanController extends Controller
             'subjek.required' => 'Subjek harus diisi',
             'isi.required' => 'Isi harus diisi',
             'id_kecamatan.required' => 'Kecamatan harus diisi',
-            'status.required' => 'Status harus diisi',
+
         ]);
 
         $pengaduan = new Pengaduan;
