@@ -165,11 +165,36 @@
 
     @if(Session::get('pengaduan'))
     <script>
+        // buat swal fire bertingkat, ketika berhasil membuat pengaduan akan tampil swal fire success, setelah di pencet oke, akan tampilkan swal fire berisi Selamat datang di layanan pengaduan Forum Anak Kabupaten Pasuruan.  Kamu bisa mengisi form di bawah jika ingin membuat pengaduan., dan dibawahnya terdapat tombol untuk mengarah ke link telegram
         Swal.fire({
             icon: "success"
             , title: "Success"
             , text: "Pengaduan Berhasil Dibuat"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Info'
+                    , text: 'Ayo lebih dekat dengan FA Kab. Pasuruan dengan melihat bot telegram kami'
+                    , showDenyButton: true
+                    , showCancelButton: false
+                    , confirmButtonText: `Oke`
+                    , denyButtonText: `Telegram`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire('Saved!', '', 'success')
+                    } else if (result.isDenied) {
+                        window.open("https://t.me/FAKabPasuruanBot", "_blank");
+                    }
+                })
+            }
         });
+
+
+        // Swal.fire({
+        //     icon: "success"
+        //     , title: "Success"
+        //     , text: "Pengaduan Berhasil Dibuat"
+        // });
 
     </script>
     @endif

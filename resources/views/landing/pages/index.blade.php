@@ -22,7 +22,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <a href="#" class="default-btn">
-                                                Ayo lebih dengan FA Kab. Pasuruan dengan melihat bot telegram kami
+                                                Ayo lebih dekat dengan FA Kab. Pasuruan dengan melihat bot telegram kami
 
                                             </a>
                                         </div>

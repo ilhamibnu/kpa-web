@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('no_telp');
-            // $table->string('subjek');
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->longText('isi');
             $table->string('status');
             $table->timestamps();

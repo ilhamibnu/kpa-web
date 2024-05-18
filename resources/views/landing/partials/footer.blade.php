@@ -3,11 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget">
-                    <div class="logo">
-                        <h2>
-                            <a href="index.html">Ketan</a>
-                        </h2>
-                    </div>
+                    <h3>About</h3>
                     <p>Selamat datang di layanan Forum Anak Kabupaten Pasuruan</p>
                     <ul class="social">
                         {{-- <li>

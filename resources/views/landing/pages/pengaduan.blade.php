@@ -68,6 +68,14 @@
                 </div>
 
                 <div class="form-group">
+                    <select name="jenis_kelamin" class="form-control">
+                        <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                        <option value="Laki-Laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <select name="id_kecamatan" class="form-control">
                         <option value="" disabled selected>Pilih Kecamatan</option>
                         @foreach($kecamatan as $k)
@@ -104,7 +112,7 @@
             <div class="text-center mt-4">
                 <a href="#" class="default-btn">
                     Selamat datang di layanan pengaduan Forum Anak Kabupaten Pasuruan. <br>
-                    Kamu bisa mengisi form di bawah jika ingin membuat pengaduan.
+                    Ayo lebih dekat dengan FA Kab. Pasuruan dengan melihat bot telegram kami
                 </a>
                 <div class="single-footer-widget">
 

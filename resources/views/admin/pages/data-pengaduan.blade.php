@@ -51,6 +51,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>No Telepon</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Kecamatan</th>
                                     <th>Jenis</th>
                                     {{-- <th>Subjek</th> --}}
@@ -66,6 +67,7 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->no_telp }}</td>
+                                    <th>{{ $data->jenis_kelamin }}</th>
                                     <td>{{ $data->kecamatan->name }}</td>
                                     <td>{{ $data->kategoripelaporan->name }}</td>
                                     {{-- <td>{{ $data->subjek }}</td> --}}
@@ -121,6 +123,7 @@
                                                             <p>
                                                                 Kategori : {{ $data->kategoripelaporan->name }} <br>
                                                                 Nama Pelapor : {{ $data->name }}
+
                                                             </p>
 
                                                         </div>
@@ -200,6 +203,20 @@
                                                     </div>
 
                                                     <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label">Jenis Kelamin</label>
+                                                        <select name="jenis_kelamin" class="form-control" id="">
+                                                            @if($data->jenis_kelamin == 'Laki-Laki')
+                                                            <option value="Laki-Laki" selected>Laki-Laki</option>
+                                                            <option value="Perempuan">Perempuan</option>
+                                                            @elseif($data->jenis_kelamin == 'Perempuan')
+                                                            <option value="Perempuan" selected>Perempuan</option>
+                                                            <option value="Laki-Laki">Laki-Laki</option>
+                                                            @endif
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Kecamatan</label>
                                                         <select name="id_kecamatan" class="form-control" id="">
                                                             <option value="{{ $data->id_kecamatan }}" selected>{{ $data->kecamatan->name }}</option>
@@ -238,141 +255,150 @@
                                                     {{-- <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Subject</label>
                                                         <input type="text" name="subjek" value="{{ $data->subjek }}" class="form-control" id="recipient-name">
-                                                    </div> --}}
+                                                </div> --}}
 
-                                                    <div class="mb-3">
-                                                        <label for="message-text" class="col-form-label">Isi</label>
-                                                        <textarea class="form-control" name="isi" rows="7" id="message-text">{{ $data->isi }}</textarea>
-                                                    </div>
-
-
+                                                <div class="mb-3">
+                                                    <label for="message-text" class="col-form-label">Isi</label>
+                                                    <textarea class="form-control" name="isi" rows="7" id="message-text">{{ $data->isi }}</textarea>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
+
+
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                        </form>
                                     </div>
                                 </div>
-                                {{-- End Modal Edit --}}
-
-                                {{-- Modal Delete --}}
-                                <div class="modal fade" id="DeleteModal{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-                                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <form action="/data-pengaduan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
-                                                <div class="modal-body">
-
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <div class="mb-4">
-                                                        <p>Anda Yakin Akan Menghapus Data {{ $data->name }} ?</p>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Delete</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- End Modal Delete --}}
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
-                    {{-- Modal Add --}}
-                    <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    {{-- End Modal Edit --}}
+
+                    {{-- Modal Delete --}}
+                    <div class="modal fade" id="DeleteModal{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
                                     <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                 </div>
-                                <form action="/data-pengaduan" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('POST')
+                                <form action="/data-pengaduan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
 
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Name</label>
-                                            <input type="text" name="name" class="form-control" id="recipient-name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Email</label>
-                                            <input type="text" name="email" class="form-control" id="recipient-name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">No Telepon</label>
-                                            <input type="text" name="no_telp" class="form-control" id="recipient-name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Kecamatan</label>
-                                            <select name="id_kecamatan" class="form-control" id="">
-                                                <option disabled selected value="">Pilih Kecamatan</option>
-                                                @foreach ($kecamatan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-
-                                            </select>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Jenis</label>
-                                            <select name="id_kategori_pelaporan" class="form-control" id="">
-                                                <option disabled selected value="">Pilih Kategori</option>
-                                                @foreach ($kategori_pelaporan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Status</label>
-                                            <select name="status" class="form-control" id="">
-                                                <option disabled selected value="">Pilih Status</option>
-                                                <option value="pending">Belum Dilayani</option>
-                                                <option value="done">Sudah Dilayani</option>
-                                            </select>
-                                        </div>
-
-                                        {{-- <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Subject</label>
-                                            <input type="text" name="subjek" class="form-control" id="recipient-name">
-                                        </div> --}}
-
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Isi</label>
-                                            <textarea class="form-control" name="isi" rows="7" id="message-text"></textarea>
+                                        @method('DELETE')
+                                        @csrf
+                                        <div class="mb-4">
+                                            <p>Anda Yakin Akan Menghapus Data {{ $data->name }} ?</p>
                                         </div>
 
 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    {{-- End Modal Add --}}
+                    {{-- End Modal Delete --}}
+                    @endforeach
+                    </tbody>
+                    </table>
                 </div>
+                {{-- Modal Add --}}
+                <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <form action="/data-pengaduan" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('POST')
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" id="recipient-name">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Email</label>
+                                        <input type="text" name="email" class="form-control" id="recipient-name">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">No Telepon</label>
+                                        <input type="text" name="no_telp" class="form-control" id="recipient-name">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Jenis Kelamin</label>
+                                        <select name="jenis_kelamin" class="form-control" id="">
+                                            <option disabled selected value="">Pilih Jenis Kelamin</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Kecamatan</label>
+                                        <select name="id_kecamatan" class="form-control" id="">
+                                            <option disabled selected value="">Pilih Kecamatan</option>
+                                            @foreach ($kecamatan as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Jenis</label>
+                                        <select name="id_kategori_pelaporan" class="form-control" id="">
+                                            <option disabled selected value="">Pilih Kategori</option>
+                                            @foreach ($kategori_pelaporan as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Status</label>
+                                        <select name="status" class="form-control" id="">
+                                            <option disabled selected value="">Pilih Status</option>
+                                            <option value="pending">Belum Dilayani</option>
+                                            <option value="done">Sudah Dilayani</option>
+                                        </select>
+                                    </div>
+
+                                    {{-- <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Subject</label>
+                                            <input type="text" name="subjek" class="form-control" id="recipient-name">
+                                        </div> --}}
+
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Isi</label>
+                                        <textarea class="form-control" name="isi" rows="7" id="message-text"></textarea>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{-- End Modal Add --}}
             </div>
         </div>
     </div>
-    <!-- End Row -->
+</div>
+<!-- End Row -->
 
 
 
