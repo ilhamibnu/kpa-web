@@ -6,26 +6,18 @@
                     <h3>About</h3>
                     <p>Selamat datang di layanan Forum Anak Kabupaten Pasuruan</p>
                     <ul class="social">
-                        {{-- <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-pinterest-alt"></i>
-                            </a>
-                        </li> --}}
-                        <li>
-                            <a href="https://www.instagram.com/fakabpasuruan/?hl=en" target="_blank">
-                                <i class="bx bxl-instagram"></i>
-                            </a>
-                        </li>
+                        <div class="text-center">
+                            <li>
+                                <a href="https://www.instagram.com/fakabpasuruan/?hl=en" target="_blank">
+                                    <i class="bx bxl-instagram"></i>
+                                </a>
+
+                            </li>
+                            <p class="mt-2">
+                                <a style="color: white;
+                                    " href="https://www.instagram.com/fakabpasuruan/?hl=en" target="_blank">@fakabpasuruan</a>
+                            </p>
+                        </div>
                     </ul>
                 </div>
             </div>

@@ -24,7 +24,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="/" class="nav-link">
-                                Home
+                                Beranda
                             </a>
                         </li>
                         <li class="nav-item">
@@ -104,32 +104,32 @@
                         <div class="dropdown language-switcher d-inline-block">
                             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span>{{ Auth::user()->name }} <i class="bx bx-chevron-down"></i></span>
-                            </button>
+</button>
 
-                            <div class="dropdown-menu">
-                                <a href="/user/pengaduan" class="dropdown-item d-flex align-items-center">
-                                    <span>Pengaduan</span>
-                                </a>
-                                <a href="/user/riwayat-pengaduan" class="dropdown-item d-flex align-items-center">
-                                    <span>Riwayat Pengaduan</span>
-                                </a>
-                                <a href="/user/logout" class="dropdown-item d-flex align-items-center">
-                                    <span>Logout</span>
-                                </a>
+<div class="dropdown-menu">
+    <a href="/user/pengaduan" class="dropdown-item d-flex align-items-center">
+        <span>Pengaduan</span>
+    </a>
+    <a href="/user/riwayat-pengaduan" class="dropdown-item d-flex align-items-center">
+        <span>Riwayat Pengaduan</span>
+    </a>
+    <a href="/user/logout" class="dropdown-item d-flex align-items-center">
+        <span>Logout</span>
+    </a>
 
-                            </div>
-                        </div>
+</div>
+</div>
 
-                        @else
-                        <div class="option-item">
-                            <a href="/user/login" class="default-btn">Login / Register</a>
-                        </div>
+@else
+<div class="option-item">
+    <a href="/user/login" class="default-btn">Login / Register</a>
+</div>
 
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@endif
+</div>
+</div>
+</div>
+</div>
+</div>
 </div> --}}
 </div>

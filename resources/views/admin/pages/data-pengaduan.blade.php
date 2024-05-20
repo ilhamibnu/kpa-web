@@ -187,7 +187,7 @@
                                                 @method('PUT')
                                                 <div class="modal-body">
 
-                                                    <div class="mb-3">
+                                                    {{-- <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Name</label>
                                                         <input type="text" name="name" value="{{ $data->name }}" class="form-control" id="recipient-name">
                                                     </div>
@@ -237,7 +237,7 @@
                                                             @endforeach
 
                                                         </select>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="mb-3">
                                                         <label for="recipient-name" class="col-form-label">Status</label>
@@ -257,10 +257,10 @@
                                                         <input type="text" name="subjek" value="{{ $data->subjek }}" class="form-control" id="recipient-name">
                                                 </div> --}}
 
-                                                <div class="mb-3">
+                                                {{-- <div class="mb-3">
                                                     <label for="message-text" class="col-form-label">Isi</label>
                                                     <textarea class="form-control" name="isi" rows="7" id="message-text">{{ $data->isi }}</textarea>
-                                                </div>
+                                                </div> --}}
 
 
                                         </div>
