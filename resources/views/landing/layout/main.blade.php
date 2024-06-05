@@ -117,51 +117,51 @@
     <!-- Custom JS -->
     <script src="{{ asset('landing/assets/js/main.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if(Session::get('login'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Login Berhasil"
-        });
+        @if(Session::get('login'))
+        <script>
+            Swal.fire({
+                icon: "success"
+                , title: "Success"
+                , text: "Login Berhasil"
+            });
 
-    </script>
-    @endif
+        </script>
+        @endif
 
-    @if(Session::get('register'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Register Berhasil"
-        });
+        @if(Session::get('register'))
+        <script>
+            Swal.fire({
+                icon: "success"
+                , title: "Success"
+                , text: "Register Berhasil"
+            });
 
-    </script>
-    @endif
+        </script>
+        @endif
 
-    @if(Session::get('logout'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Logout Berhasil"
-        });
+        @if(Session::get('logout'))
+        <script>
+            Swal.fire({
+                icon: "success"
+                , title: "Success"
+                , text: "Logout Berhasil"
+            });
 
-    </script>
-    @endif
+        </script>
+        @endif
 
-    @if(Session::get('gagallogin'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Login Gagal"
-        });
+        @if(Session::get('gagallogin'))
+        <script>
+            Swal.fire({
+                icon: "error"
+                , title: "Gagal"
+                , text: "Login Gagal"
+            });
 
-    </script>
-    @endif
+        </script>
+        @endif
 
     @if(Session::get('pengaduan'))
     <script>
