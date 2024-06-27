@@ -10,6 +10,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="main-banner-content">
+                                {{-- // alert info --}}
+                                <div class="alert alert-warning alert-dismissible fade show mt-2">
+                                    <strong>Perhatian!</strong> Website ini masih dalam tahap pengembangan, mohon maaf atas ketidaknyamanan ini.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
                                 <span>Selamat datang di layanan Forum Anak Kabupaten Pasuruan</span>
                                 <h1>Forum Anak Adalah Wadah Partisipasi Anak</h1>
                                 <p>dimana anggotanya merupakan perwakilan dari Kelompok Anak atau Kelompok Kegiatan Anak atau perseorangan, dan dibina oleh pemerintah, sebagai sarana menyalurkan aspirasi, suara, pendapat, keinginan, dan kebutuhan Anak dalam proses pembangunan.</p>
